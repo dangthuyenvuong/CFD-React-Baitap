@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        .container{
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .num{
+            text-align: center;
+            font-size: 50px;
+            font-weight: 800;
+        }
+        .control{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0 20px;
+        }
+    </style>
+<body>
+        <div class="container">
+            <div class="clock">
+                <p class="num">0</p>
+                <div class="control">
+                    <button class="start clock1">start</button>
+                    <button class="pause clock1">pause</button>
+                    <button class="reset clock1">reset</button>
+                </div>
+            </div>
+            <div class="clock">
+                <p class="num clock2">0</p>
+                <div class="control">
+                    <button class="start clock2">start</button>
+                    <button class="pause clock2">pause</button>
+                    <button class="reset clock2">reset</button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <script>
+       
+
+            const select = ( selector ) =>  document.querySelector(selector);
+            
+     
+            
+             const countdown = (element , initnumber = 10) => {
+                 let number = initnumber
+                 let timerId ;
+     
+     
+                 const object =  {
+                     play: () =>{
+                         clearInterval(timerId);
+                         timerId = setInterval( () => {
+                             --number
+                             if ( number === 0) {
+                                 clearInterval(timerId)
+                             }
+                             element.innerHTML = number;
+                         }, 1000 )
+                     },
+     
+                     pause: () => {
+                         clearInterval(timerId);
+                     },
+     
+                     reset: () => {
+                         number = initnumber;
+                         object.play();
+                     }
+                 }
+     
+                 return object;
+     
+             }
+     
+             const count1 = countdown(select('.num'));
+             select('.start.clock1').addEventListener("click", count1.play)
+             select('.pause.clock1').addEventListener("click", count1.pause)
+             select('.reset.clock1').addEventListener("click", count1.reset)
+     
+     
+             const count2 = countdown(select('.num.clock2'), 100);
+             select('.start.clock2').addEventListener("click", count2.play)
+             select('.pause.clock2').addEventListener("click", count2.pause)
+             select('.reset.clock2').addEventListener("click", count2.reset) 
+     
+     
+         </script>
+</body>
+   
+</html>

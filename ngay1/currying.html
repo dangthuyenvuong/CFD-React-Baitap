@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown</title>
+    <style>
+        .box {
+            padding: 50px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .flex{
+            display: flex;
+            gap: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex">
+        <div class="box box1">
+            <button class="decrement">Giảm</button>
+            <h1 class="number">10</h1>
+            <button class="increment">Tăng</button>
+        </div>
+        <div class="box box2">
+            <button class="decrement">Giảm</button>
+            <button class="decrement10">Giảm 10</button>
+            <button class="decrement20">Giảm 20</button>
+            <h1 class="number">100</h1>
+            <button class="increment">Tăng</button>
+            <button class="increment10">Tăng 10</button>
+            <button class="increment20">Tăng 20</button>
+        </div>
+    </div>
+
+    <script>
+        // closure
+        // const select = ( selector ) =>  document.querySelector(selector);
+
+        // const updateData = (element, init = 10) => {
+        //     let number = init;
+        //     const object = {
+        //         decrement: (e, distance = 1) => {
+        //             number-=distance;
+        //             element.innerHTML = number;
+        //         },
+        //         increment: (e, distance = 1) => {
+        //             number+=distance;
+        //             element.innerHTML = number;
+        //         }
+        //     }
+        //     return object 
+        // }
+        
+
+        // const update1 = updateData(select(".box1 .number"));
+
+        // select(".box1 .increment").addEventListener("click", update1.increment)
+        // select(".box1 .decrement").addEventListener("click", update1.decrement)
+
+
+
+        //  Currying
+        const select = ( selector ) =>  document.querySelector(selector);
+
+
+
+        const updateData = (value = 10) => ( distance ) => (event) => {
+            value+=distance;
+            event.currentTarget.parentNode.querySelector('.number').innerText = value;
+        }
+
+        const update1 = updateData()
+
+        select(".box1 .increment").addEventListener("click", update1(1))
+        select(".box1 .decrement").addEventListener("click", update1(-1))
+        
+
+        const update2 = updateData(100)
+        document.querySelector('.box2 .increment').addEventListener('click', update2(1))
+        document.querySelector('.box2 .increment10').addEventListener('click', update2(10))
+        document.querySelector('.box2 .increment20').addEventListener('click', update2(20))
+
+
+        document.querySelector('.box2 .decrement').addEventListener('click', update2(-1))
+        document.querySelector('.box2 .decrement10').addEventListener('click', update2(-10))
+        document.querySelector('.box2 .decrement20').addEventListener('click', update2(-20))
+    </script>
+</body> 
