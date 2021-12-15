@@ -1,0 +1,81 @@
+.button {
+    --height: 36px;
+    --radius: 12px;
+    --bg-color: rgb(0, 214, 0);
+    --color: #fff;
+    --border: rgb(0, 68, 0);
+    --pd: 12px;
+    height: 32px;
+    background-color: var(--bg-color);
+    border: 2px solid var(--border);
+    cursor: pointer;
+    padding: 0 var(--pd);
+    border-radius: var(--radius);
+    font-size: 12px;
+    color: var(--color);
+    cursor: pointer;
+
+    &.size {
+        &-small {}
+
+        &-medium {
+            --height: 48px;
+            --pd: 16px;
+        }
+
+        &-large {
+            --height: 56px;
+            --pd: 48px;
+        }
+    }
+
+    &.color {
+        &-bright {
+            --bg-color: #{#f5f5f5};
+            --border: none;
+            --color: #{#151515};
+        }
+
+        &-simple {
+            --bg-color: #{#fff};
+            --border: none;
+            --color: #{#151515};
+        }
+
+        &-stroke {
+            --bg-color: #{#fff};
+            --border: #92C064;
+            --color: #{#151515};
+        }
+
+
+    }
+
+    &.type {
+        &-default {}
+
+        &-icon-left {
+            // @include flex(center, center);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+
+            svg {
+                transform: rotate(-180deg);
+            }
+        }
+
+        &-icon-right {
+            // @include flex(center, center);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+    }
+
+    &.round {
+        border-radius: 50px;
+    }
+}
