@@ -1,0 +1,25 @@
+@import '../../assets/css/style';
+
+
+.Accordion{
+    .title{
+        background: gray;
+        padding: 10px;
+    }
+    .content{
+        display: none;
+    }
+    &.open{
+        .content{
+            display: block !important;
+        }
+    }
+
+    &.hide{
+        .content{
+            display: none;
+        }
+    }
+}
+
+
