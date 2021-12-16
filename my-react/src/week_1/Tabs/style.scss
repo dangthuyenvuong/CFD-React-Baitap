@@ -1,0 +1,22 @@
+.tab {
+    display: flex;
+    margin-top: 50px;
+
+    .tab-select {
+        padding: 10px 20px;
+        background-color: grey;
+        cursor: pointer;
+
+        &.active {
+            background-color: rgb(54, 54, 54)
+        }
+    }
+}
+
+.tab-item {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}

@@ -1,0 +1,32 @@
+.accordian {
+    cursor: pointer;
+    margin-top: 30px;
+
+    h3 {
+        margin: 0;
+        padding: 10px 60px;
+        background-color: grey;
+        border: 1px solid #000;
+        border-radius: 20px;
+    }
+
+    .content {
+        margin-top: 10px;
+    }
+
+    .accor-item {
+        &.open {
+
+            .content {
+                display: block
+            }
+        }
+
+        &.hide {
+            .content {
+                display: none;
+
+            }
+        }
+    }
+}
