@@ -1,14 +1,20 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
+import React from "react";
+import { Link, Outlet } from "react-router-dom";
 
 export const MainLayout = () => {
-    return (
-        <div>
-            <div>Header</div>
-            <main id="main-content">
-                <Outlet />
-            </main>
-            <div>Footer</div>
-        </div>
-    )
-}
+  return (
+    <div>
+      <div>Header</div>
+      <Outlet />
+      {/* <ul>
+        <li>
+          <Link to="/address">address</Link>
+        </li>
+        <li>
+          <Link to="/info">Info</Link>
+        </li>
+      </ul> */}
+      <div>Footer</div>
+    </div>
+  );
+};

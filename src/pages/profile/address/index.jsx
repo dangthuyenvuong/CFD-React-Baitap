@@ -1,12 +1,13 @@
-import React from 'react'
+import React from "react";
+import { Link, Outlet } from "react-router-dom";
 
 export const Address = () => {
-    return (
-        <div>
-            Address
-        </div>
-    )
-}
+  return (
+    <div>
+      Address
+      {/* <Outlet /> */}
+    </div>
+  );
+};
 
-
-export default Address
+export default Address;
