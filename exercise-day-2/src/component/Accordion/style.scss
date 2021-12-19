@@ -1,0 +1,48 @@
+.lab-2{
+    max-width: 1000px;
+    border: 1px solid rgba(0,0,0,.125);
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+}
+
+
+.accordion{
+
+    &-item{
+        &.open{
+            .accordion-body{
+                opacity: 1;
+                height: 100%;
+            }
+
+            .icon{
+                transform: rotate(180deg);
+            }
+        }
+
+        &.hide{
+            .accordion-body{
+                opacity: 0;
+                height: 0;
+            }
+        }
+    }
+
+    &-header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0;
+        cursor: pointer;
+
+        .icon{
+            transition: .5s ease 0s;
+        }
+    }
+
+    &-body{
+        transition: .5s ease 0s;
+    }
+}

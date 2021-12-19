@@ -1,0 +1,41 @@
+.btn{
+    width: var(--width-btn);
+    height: var(--height-btn);
+    line-height: var(--height-btn);
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: var(--width-btn);
+
+    &-small{
+        --width-btn: 80px;
+        --height-btn: 30px;
+    }
+
+    &-medium{
+        --width-btn: 100px;
+        --height-btn: 40px;
+    }
+
+    &-large{
+        --width-btn: 120px;
+        --height-btn: 50px;
+    }
+
+    &-bright{
+        background-color: transparent;
+        border-color: #4A7D98;
+    }
+
+    &-colored{
+        color: #fff;
+        background-color: #4A7D98;
+    }
+
+    &-simple{
+        background-color: #D8D8D8;
+    }
+
+    &-stroke{
+        background-color: transparent;
+    }
+}

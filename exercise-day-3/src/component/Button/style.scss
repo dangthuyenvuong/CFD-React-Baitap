@@ -1,0 +1,46 @@
+.btn{
+    width: var(--width-btn);
+    border-radius: var(--width-btn);
+    height: calc(var(--width-btn) / 2);
+    
+    &-small{
+        --width-btn: 80px;
+    }
+
+    &-medium{
+        --width-btn: 100px;
+    }
+
+    &-large{
+        --width-btn: 110px;
+    }
+
+    &.color{
+        &-bright{
+            border: 2px solid #3C7797;
+            background-color: #fff;
+        }
+
+        &-colored{
+            border: transparent;
+            background-color: #3C7797;
+            color: #fff;
+        }
+
+        &-simple{
+            border: transparent;
+            background-color: #EDEDED;
+        }
+
+        &-stroke{
+            background-color: #fff;
+            border: transparent;
+        }
+    }
+
+    &.icon{
+        &-default{
+            
+        }
+    }
+}
