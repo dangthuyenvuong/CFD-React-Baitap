@@ -1,0 +1,101 @@
+@import '../../assets/css/style.scss';
+
+.header {
+    --height-header: 178px;
+    --height-headercontact: 48px;
+    margin: auto;
+    height: var(--height-header);
+
+    &__contact {
+        @include flex(center, space-between);
+        height: var(--height-headercontact);
+        border-bottom: 1px solid rgba(21, 21, 21, 0.05);
+        &-list {
+            @include flex(center, space-between);
+            gap: 33px;
+            height: 100%;
+        }
+        &-item {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            @include text(var(--body12-fs), os, var(--body12-lh), inherit, none);
+            margin: auto;
+            a {
+                color: $green-cl;
+                display: block;
+                padding: 18px 0;
+            }
+        }
+    }
+
+    &__search {
+        @include flex(center, space-between);
+        position: relative;
+        height: calc(var(--height-header) - var(--height-headercontact));
+        .logo {
+            h1 {
+                display: none;
+            }
+        }
+        .form__search {
+            @include mid();
+            display: flex;
+            align-items: center;
+            width: 500px;
+            // width: 100%; 
+            height: 42px;
+            background-color: $bg-nav;
+            border: 1px solid $d1;
+            border-radius: 12px;
+            .category {
+                position: relative;
+                cursor: pointer;
+                position: relative;
+                padding-left: 16px;
+                margin-right:24px;
+                height: 100%;
+                @include flex( center, center);
+                .current {
+                    @include flex( center, center);
+                    height: 100%;
+                    span {
+                        padding-right: 14px;
+                    }
+                }
+                .option {
+                    position: absolute;
+                    bottom: -40px;
+                    width: 100%;
+                    display: none;
+                }
+            }
+            input {
+                border: none;
+                padding-left: 24px;
+                flex: 1;
+                outline: none;
+                line-height: 19px;
+                border-left: 1px solid #D1D1D1;
+                background-color: transparent;
+            }
+
+            ::placeholder {
+                color: $gray-cl;
+            }
+
+            .btn__search {
+                height: 100%;
+                @include flex( center, center);
+                padding: 0 16px;
+                img {
+                    @include size(20);
+                }
+            }
+        }
+        &-left {
+            display: flex;
+            gap: 40px;
+        }
+    }
+}

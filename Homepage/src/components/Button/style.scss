@@ -1,0 +1,118 @@
+@import "../../assets/css/style.scss";
+
+.Button {
+    --height: 36px;
+    --bg-color: #{$green-cl};
+    --color: #{$white-cl};
+    --border: #{$green-border};
+    --pd: 12px;
+    height: var(--height);
+    background-color: var(--bg-color);
+    border: 2px solid var(--border);
+    cursor: pointer;
+    padding: 0 var(--pd);
+    border-radius: var(--radius);
+    @include text(var(--h4-fs), pb, none, var(--color), none);
+    @include transition($t);
+
+    &:hover {
+        --bg-color: transparent;
+        --color: #{$green-cl};
+    }
+
+    svg {
+        display: block;
+    }
+
+    &.size {
+        &-medium {
+            --height: 48px;
+            --pd: 16px;
+        }
+
+        &-large {
+            --height: 56px;
+            --pd: 48px;
+        }
+    }
+
+    &.color {
+        &-bright {
+            --bg-color: #{$white-f5};
+            --border: none;
+            --color: #{$black15};
+            @include transition($t);
+
+            &:hover {
+                --bg-color: #{$black15};
+                --color: #{$white-f5};
+            }
+        }
+
+        &-simple {
+            --bg-color: #{$white-cl};
+            --border: none;
+            --color: #{$black15};
+            @include transition($t);
+
+            &:hover {
+                --bg-color: #{$black15};
+                --color: #{$white-f5};
+            }
+        }
+
+        &-stroke {
+            --bg-color: transparent;
+            --border: #92C064;
+            --color: #{$black15};
+            @include transition($t);
+
+            &:hover {
+                --border: #{$black15};
+                --color: #{$black15};
+            }
+        }
+
+        @include xs {}
+    }
+
+    &.type {
+        &-icon-left {
+            @include flex(center, center);
+            gap: 12px;
+
+            svg {
+                transform: rotate(-180deg);
+                @include transition($t);
+            }
+
+            &:hover {
+                svg {
+                    @include transform(translateX(-30%) rotate(-180deg));
+                }
+            }
+        }
+
+        &-icon-right {
+            @include flex(center, center);
+            gap: 12px;
+
+            svg {
+                @include transition($t);
+            }
+
+            &:hover {
+                svg {
+                    @include transform(translateX(30%));
+                }
+            }
+        }
+
+    }
+
+
+}
+
+// &.round {
+//     border-radius: 50px;
+// }
