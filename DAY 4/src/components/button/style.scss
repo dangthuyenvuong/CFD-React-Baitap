@@ -1,0 +1,30 @@
+.button{
+    --size: 80px;
+    width: var(--size);
+    height: var(--size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &.color{
+        &-colored{
+            background-color: rgb(0, 162, 255);
+        }
+        &-simple{
+            background-color: #ccc;
+        }
+        &-stoke{
+            border: 1px solid #ccc;
+        }
+    }
+    &.size{
+        &-medium{
+            --size: 120px;
+        }
+        &-large{
+            --size: 150px;
+        }
+    }
+    &.round{
+        border-radius: 20px;
+    }
+}
