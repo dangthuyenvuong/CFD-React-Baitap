@@ -1,0 +1,14 @@
+@import "../../assets/styles/styles.scss";
+
+.category__header {
+  background-color: $gray-light;
+
+  &-list {
+    display: flex;
+    align-items: center;
+    padding: 16px 0;
+    .item {
+      margin-right: 40px;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@import "../../assets/styles/styles.scss";
+
+.item {
+    display: flex;
+    align-items: center;
+  span {
+    font-family: pm;
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+    margin-right: 2px;
+  }
+  i{
+      display: flex;
+  }
+}

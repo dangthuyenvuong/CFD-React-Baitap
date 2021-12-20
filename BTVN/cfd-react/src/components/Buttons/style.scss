@@ -1,0 +1,67 @@
+@import "../../assets/styles/styles.scss";
+
+.Button {
+  --bgCl: #{$white-cl};
+  --radius: 12px;
+  padding: 16px 48px;
+  cursor: pointer;
+  border: 2px solid #92c064;
+  display: inline-block;
+  border-radius: var(--radius);
+
+  &.color {
+    &-black {
+      color: $black-cl;
+    }
+    &-white {
+      color: $white-cl;
+    }
+  }
+  &.size {
+    &-large {
+      padding: 16px 48px;
+    }
+    &-middle {
+      padding: 12px 16px;
+    }
+    &-small {
+      padding: 6px 12px;
+    }
+  }
+
+  &.background {
+    &-default {
+      background: $white-cl;
+      border: 2px solid #46760a;
+    }
+    &-green {
+      background: $green-bold;
+      border: 2px solid #46760a;
+    }
+    &-gray {
+      background: $gray-cl;
+      border: 2px solid #46760a;
+      border: none;
+    }
+  }
+
+  &.type {
+    &default {
+    }
+    &-icon-left {
+      display: flex;
+      align-items: center;
+      svg {
+        display: block;
+      }
+    }
+    &-icon-right {
+      display: flex;
+      flex-direction: revert;
+      align-items: center;
+      svg {
+        display: block;
+      }
+    }
+  }
+}

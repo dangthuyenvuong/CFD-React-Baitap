@@ -1,0 +1,43 @@
+@import "../../assets/styles/styles.scss";
+
+.tag {
+  padding: 0px 8px;
+  font-family: psb;
+  font-size: 12px;
+  line-height: 18px;
+  display: inline-block;
+  border-radius: 12px;
+  &.color {
+    &-green {
+      color: $green-bold;
+    }
+    &-black {
+      color: $black-text;
+    }
+  }
+  &.size {
+    &-large {
+      padding: 4px 10px;
+    }
+  }
+  &.background {
+    &-green {
+      background-color: #f4f8ec;
+    }
+    &-gray {
+      background-color: $gray-cl;
+    }
+    &-white {
+      background-color: $white-cl;
+      border: 1px solid #ebebeb;
+    }
+  }
+  &.long {
+    i {
+      margin-left: 10px;
+    }
+  }
+  i {
+    margin-left: 4px;
+  }
+}

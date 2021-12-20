@@ -1,0 +1,18 @@
+@import "../../assets/styles/styles.scss";
+
+.headeline {
+  .container {
+    display: flex;
+    .headeline__left {
+      width: 269px;
+      margin-right: 32px;
+      text-align: left;
+    }
+    .headeline__right {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 0 32px;
+    }
+  }
+}

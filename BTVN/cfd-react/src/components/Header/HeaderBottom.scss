@@ -1,0 +1,75 @@
+@import "../../assets/styles/styles.scss";
+
+.header__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 56px 0;
+  &-form {
+    display: flex;
+    background-color: $gray-light;
+    padding: 10px 16px 9px;
+    border: 1px solid $gray-border;
+    border-radius: 12px;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    .category {
+      .dropdown {
+        &-select {
+          font-family: pr;
+          font-weight: bold;
+          font-size: 15px;
+          line-height: 22px;
+          color: $black-text;
+          margin-right: 48px;
+          i {
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+    .input-search {
+      position: relative;
+      &:after {
+        content: " ";
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        left: -24px;
+        top: 0;
+        background-color: $gray-border;
+      }
+      input {
+        outline: none;
+        border: none;
+        background: transparent;
+        color: #a9a9a9;
+        font-family: or;
+        font-size: 1.4rem;
+        width: 262px;
+      }
+    }
+    .btn {
+      margin-left: auto;
+      &-search {
+        border: none;
+        outline: none;
+        background: transparent;
+        display: flex;
+        cursor: pointer;
+        i {
+          display: flex;
+        }
+      }
+    }
+  }
+  &-cart {
+    i {
+      cursor: pointer;
+      &:nth-child(1) {
+        margin-right: 40px;
+      }
+    }
+  }
+}

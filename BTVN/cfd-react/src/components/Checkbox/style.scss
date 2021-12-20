@@ -1,0 +1,54 @@
+@import "../../assets/styles/styles.scss";
+
+.checkbox-wrapper {
+  display: inline-flex;
+  align-items: center;
+  input[type="checkbox"] {
+    position: relative;
+    opacity: 0;
+    margin-right: 8px;
+    width: 24px;
+    height: 24px;
+    z-index: 2;
+    cursor: pointer;
+    &:checked + label::before {
+      background-color: $green-bold;
+      outline: 2px solid $green-dark;
+    }
+    &:checked + label::after {
+      opacity: 1;
+    }
+  }
+  label {
+    position: relative;
+    font-family: or;
+    font-size: 1.4rem;
+    line-height: 1.9rem;
+    color: $black-text;
+    &::before {
+      content: "";
+      cursor: pointer;
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: -32px;
+      transform: translateY(-50%);
+      width: 24px;
+      height: 24px;
+      outline: 2px solid $gray-border;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      opacity: 0;
+      z-index: 1;
+      top: 3px;
+      left: -30px;
+      width: 20px;
+      height: 20px;
+      background-image: url(../../assets/icons/ic-check.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+}
