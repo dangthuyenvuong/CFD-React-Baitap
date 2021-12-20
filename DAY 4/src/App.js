@@ -22,6 +22,7 @@ function App() {
   const [textActive, setTextActive] = useState(false)
 
   const [checkbox, setCheckbox] = useState(false)
+  const [checkbox2, setCheckbox2] = useState(false)
 
   const [error, setError] = useState({})
   
@@ -36,7 +37,6 @@ function App() {
   
   }
   const submit = () => {
-    console.log(formValue)
     let objError = {}
 
     if(!username.trim()){
@@ -59,19 +59,37 @@ function App() {
       objError.age = 'Bé cần phải lớn hơn 18 chủi'
     }
 
+    if(!checkbox && !checkbox2 ){
+      objError.all = 'vui lòng xác nhận trước khi submit'
+    }else if(!checkbox){
+      objError.all = 'vui lòng đọc lại quy định và chọn yes'
+    }
+
     setError(objError)
   }
+
+  const modifyCheckbox = () =>{
+    if(checkbox){
+      setCheckbox(false)
+      setCheckbox2(true)
+    }else{
+      setCheckbox2(false)
+      setCheckbox(true)
+    }
+  }
+
   return (
     <div className="App">
       <h1>Register Form</h1>
       <form>
       <Input label='Username' placeholder='Username' size='large'value={username} error={error.username} onchange={(ev) => setFormValue({...formValue, username: ev.currentTarget.value})}></Input>
-      <Input label='Password' placeholder='Password' size='large'value={formValue.password} error={error.password} onchange={(ev) => setFormValue({...formValue, password: ev.currentTarget.value})}></Input>
-      <Input label='Confirm password' placeholder=' Confirm password' size='large' error={error.rePassword} onchange={(ev) => setFormValue({...formValue, rePassword: ev.currentTarget.value})}></Input>
+      <Input label='Password' text='password' placeholder='Password' size='large'value={formValue.password} error={error.password} onchange={(ev) => setFormValue({...formValue, password: ev.currentTarget.value})}></Input>
+      <Input label='Confirm password' text='password' placeholder=' Confirm password' size='large' error={error.rePassword} onchange={(ev) => setFormValue({...formValue, rePassword: ev.currentTarget.value})}></Input>
       <Select onchange={selectChange} textActive={textActive}/>
-
       <Input label='Age' size='medium' error={error.age} onchange={(ev) => setFormValue({...formValue, age: ev.currentTarget.value})}></Input>
-      <Checkbox/>
+      <Checkbox value='yes' onclick={modifyCheckbox} checked={checkbox}/>
+      <Checkbox value='no' onclick={modifyCheckbox} checked={checkbox2}/>
+      <p>{error.all}</p>
       <Button color='colored' onclick={submit}>Submit</Button>
       </form>
     </div>

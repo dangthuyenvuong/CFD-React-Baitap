@@ -1,17 +1,15 @@
 import React from 'react'
 import './style.scss'
 
-export default function Checkbox({checked}) {
+export default function Checkbox({onclick,checked, value}) {
     return (
-        <div className='checkForm'>
             <div className="checkbox">
-            <input type='checkbox' checked={checked}/>
-            <p>yes</p>
+            <input type='checkbox' value={value} onClick={onclick} checked={checked ? 'checked' : ''}/>
+            <p>{value}</p>
             </div>
-            <div className="checkbox">
-            <input type='checkbox' checked={checked}/>
-            <p>no</p>
-            </div>
-        </div>
+        //     <div className="checkbox">
+        //     <input type='checkbox' value='no' onClick={onclick} checked={checked ? 'checked' : ''}/>
+        //     <p>no</p>
+        //     </div>
     )
 }

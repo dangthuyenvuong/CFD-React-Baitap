@@ -8,7 +8,6 @@ export default function Select({ onchange, textActive = false }) {
     { id: "DevOps" },
     { id: "Other" },
   ];
-  console.log(textActive);
   return (
     <div>
       <select onChange={onchange}>
