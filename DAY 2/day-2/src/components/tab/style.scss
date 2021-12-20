@@ -1,0 +1,21 @@
+.wrap{
+    display: flex;
+    width: 500px;
+    .tab{
+        width: 50%;
+        padding: 10px 0;
+        cursor: pointer;
+        &__item{
+            display: none;
+        }
+        &.active{
+            .tab__name{
+                background-color: red;
+                color: white;
+            }
+            .tab__item{
+                display: block;
+            }
+        }
+    }
+}

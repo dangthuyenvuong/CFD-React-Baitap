@@ -1,0 +1,50 @@
+@import "../../assets/css/style.scss";
+
+.footer{
+    padding: 64px 0;
+}
+
+.footerTop{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 48px;
+
+    .heading{
+        margin-bottom: 1.6rem;
+    }
+
+    &-list{
+        li{
+            margin-bottom: 1.6rem;
+            a{
+                @include body-d;
+                color: $c2-a;
+            }
+        }
+    }
+}
+
+.product-tag{
+    margin-bottom: 48px;
+    
+    .heading{
+        margin-bottom: 2rem;
+    }
+
+    &__wrap{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+    
+    &__item{
+        font-family: ps;
+        font-size: 1.2rem;
+        border-radius: 12px;
+        padding: 4px 10px;
+        background-color: #E5E5E5;
+        a{
+            color: #151515;
+        }
+    }
+}

@@ -1,0 +1,78 @@
+@import '../../assets/css/style.scss';
+.slider{
+    button:before{
+        color: #000;
+    }
+}
+.quote-simple{
+
+    &__wrap{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+}
+
+
+.quote-item{
+    position: relative;
+    max-width: 36.9rem;
+    padding-bottom: calc(48px / 2);
+
+    &__wrap{
+        width: 100%;
+        min-height: 10rem;
+        padding: 2.4rem 3.2rem 4rem;
+        border: 1px solid #F1F1F1;
+        border-radius: 1.2rem;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    &__text,
+    &__name{
+        text-align: center;
+    }
+
+    &__text{
+        font-family: pm;
+        font-size: var(--body15-fs);
+        margin-bottom: 2.4rem;
+    }
+
+    &__name{
+        color: $c1-c;
+        font-family: ps;
+    }
+
+    &__avatar{
+        display: inline-block;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        @include transform(translateX(-50%));
+
+        &.--small{
+            --size-avt: 32px;
+            @include size(var(--size-avt))
+        }
+
+        &.--medium{
+            --size-avt: 48px;
+            @include size(var(--size-avt))
+        }
+
+        &.--large{
+            --size-avt: 64px;
+            @include size(var(--size-avt))
+        }
+
+        img{
+            border: none;
+            @include size(100%);
+            @include br(50%);
+        }
+    }
+}

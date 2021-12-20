@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object exercise</title>
+    <link rel="stylesheet" href="./assets/style.css">
+  </head>
+
+  <body>
+    <div class="flex">
+      <h1>Object exercise</h1>
+      <h2>BAI 5</h2>
+    </div>
+    <script>
+      "strict mode";
+
+      let profile = {
+        fname: "CFD",
+
+        lname: "Circle",
+
+        age: 1
+      };
+
+      /*
+      1. dùng Spread để clone profile => newProfile1
+      */
+      /*----Code here-----*/
+
+      let newProfile1 = {...profile}
+      
+      /*------------------------------*/
+
+      console.log(newProfile1)
+      /*
+      2. dùng Spread để clone profile => newProfile2 và thay đổi age thành 2
+      */
+      /*----Code here-----*/
+
+      let newProfile2 = {...profile}
+      newProfile2.age = 2
+
+      /*------------------------------*/
+
+      console.log(newProfile2)
+      /*
+      3. dùng Spread để clone profile => newProfile và thêm giá trị address: "Lầu 2, 666/46/29, Phường 14, Quận 10, TPHCM"
+      */
+      /*----Code here-----*/
+
+      let newProfile = {...profile}
+      newProfile.adddress = "Lầu 2, 666/46/29, Phường 14, Quận 10, TPHCM"
+
+      /*------------------------------*/
+
+      console.log(newProfile)
+      /*
+      4. dùng Spread để kết hợp 2 object: profile và newProfile2  =>  newProfile 3
+      */
+      /*----Code here-----*/
+
+      let newProfile3 = {...profile,newProfile2}
+
+      console.log(newProfile3)
+
+      /*------------------------------*/
+    </script>
+  </body>
+</html>

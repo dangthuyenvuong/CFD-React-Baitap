@@ -1,0 +1,115 @@
+@import '../../assets/css/style.scss';
+
+.header__top{
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 0;
+    font-size: var(--body12-fs);
+    line-height: var(--body12-lh);
+    a{
+        color: $c2-a;
+    }
+    &-left,
+    &-right{
+        display: flex;
+        gap: 33px;
+    }
+}
+.header__main{
+    padding: 40px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &-search{
+        display: flex;
+        align-items: center;
+
+        padding: 10px 16px 9px 16px;
+
+        background: $c1-h;
+        border: 1px solid $c1-d;
+        box-sizing: border-box;
+        border-radius: 12px;
+
+        .main-search__left{
+            display: flex;
+            align-items: center;
+            position: relative;
+            p{
+                font-family: 'pb';
+                font-size: var(--h5-fz);
+                line-height: 22px;
+                margin-right: 8px;
+            }
+        }
+        .main-search__left::after{
+            content: '';
+            display: block;
+            width: 20px;
+            height: 1px;
+            background-color: $c1-d;
+            transform: rotate(90deg);
+            margin: 0 4px;
+        }
+        .main-search__right{
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            input{
+                font-family: 'or';
+                font-size: var(--body14-fs);
+                line-height: var(--body14-lh);
+                color: $c1-c;
+                width: 262px;
+                height: 19px;
+                border: none;
+            }
+            input:focus{
+                outline: none;
+            }
+        }
+    }
+    &-cartuser{
+        display: flex;
+        gap: 40px;
+        .cart{
+            position: relative;
+            &__amount{
+                background-color: $c4-a;
+                width: 16px;
+                height: 18px;
+                border-radius: 50%;
+                position: absolute;
+                top: 14px;
+                left: -2px; 
+                p{
+                text-align: center;
+                font-family: 'ps';
+                font-size: 12px;
+                line-height: 18px;
+                color: $c1-j;
+                }
+            }
+        }
+    }
+}
+.header__nav{
+    background-color: $c1-g;
+    .container{
+        ul{
+            display: flex;
+            gap: 40px;
+            li{
+                display: flex;
+                align-items: center;
+                padding: 16px 0;
+                gap: 2px;
+                p{
+                    font-family: 'ps';
+                    font-size: var(--body15-fs);
+                    line-height: var(--body15-lh);
+                }
+            }
+        }
+    }
+}

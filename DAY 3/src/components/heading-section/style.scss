@@ -1,0 +1,10 @@
+@import '../../assets/css/style.scss';
+
+.headingSection{
+    &__wrap{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 3.6rem;
+    }
+}

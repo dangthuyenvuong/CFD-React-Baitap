@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="assets/bai1.css">
+</head>
+<body>
+    <div class="watch">
+        <h2 class="watch__time">10</h2>
+        <div class="watch__nav">
+            <button class="start">Start</button>
+            <button class="pause">Pause</button>
+            <button class="reset">Reset</button>
+
+        </div>
+    </div>
+    <div class="watch">
+        <h2 class="watch__time">100</h2>
+        <div class="watch__nav">
+            <button class="start">Start</button>
+            <button class="pause">Pause</button>
+            <button class="reset">Reset</button>
+        </div>
+    </div>
+    <script>
+        const button=document.querySelectorAll('.watch button')
+        const watch1=document.querySelector('.watch:first-child')
+        const numWatch1=watch1.querySelector('h2')
+        const startWatch1=watch1.querySelector('.start')
+        const pauseWatch1=watch1.querySelector('.pause')
+        const resetWatch1=watch1.querySelector('.reset')
+        const watch2=document.querySelector('.watch:nth-child(2)')
+        const numWatch2=watch2.querySelector('h2')
+        const startWatch2=watch2.querySelector('.start')
+        const pauseWatch2=watch2.querySelector('.pause')
+        const resetWatch2=watch2.querySelector('.reset')
+
+
+        // animation click
+        button.forEach((item) => {
+            item.addEventListener('click',function(){
+                item.classList.add('animation')
+                setTimeout(()=>item.classList.remove('animation'),200)
+            })
+        })
+
+        let count = (element,time = 10) => {
+            let countNum = time
+            element.innerText = countNum
+            let countTime
+            let obj = {
+                play: () => {
+                    clearInterval(countTime)
+                    countTime = setInterval(() => {
+                        countNum--
+                        element.innerText = countNum
+                        if(countNum === 0){
+                            clearInterval(countTime)
+                        }
+                    }, 1000);
+                },
+                pause: ()=>{
+                    clearInterval(countTime)
+                },
+                reset: ()=>{
+                    clearInterval(countTime)
+                    countNum=time
+                    element.innerText = countNum
+                }
+            }
+            return obj
+        }
+        const count1 = count(numWatch1)
+        
+        startWatch1.addEventListener('click',count1.play)
+        pauseWatch1.addEventListener('click',count1.pause)
+        resetWatch1.addEventListener('click',count1.reset)
+
+        const count2 = count(numWatch2,1000)
+        
+        startWatch2.addEventListener('click',count2.play)
+        pauseWatch2.addEventListener('click',count2.pause)
+        resetWatch2.addEventListener('click',count2.reset)
+    </script>
+</body>
+</html>

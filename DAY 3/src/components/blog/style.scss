@@ -1,0 +1,49 @@
+@import '../../assets/css/style.scss';
+
+.blog-post{
+    width: var(--size);
+
+    &.--medium{
+        --size: 46.9rem;
+        height: 40rem;
+        position: relative;
+    }
+
+    a{
+        @include size(100%);
+        color: $c1-a;
+        display: block;
+    }
+
+    &__image{
+        @include size(100%);
+
+        img{
+            @include size(100%);
+            object-fit: cover;
+            @include br(12px);
+        }
+    }
+
+    &__content{
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+
+    &__info{
+        display: flex;
+        align-items: center;
+    }
+
+    .author{
+        display: flex;
+        align-items: center;
+
+        &__avt{
+            display: inline-block;
+            @include size(32px);
+            @include br(50%);
+        }
+    }
+}

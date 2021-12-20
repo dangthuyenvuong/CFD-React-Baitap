@@ -1,0 +1,57 @@
+@import '../../assets/css/style.scss';
+
+.product{
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border-radius: 12px;
+    background: $c1-j;
+    border: 1px solid $c1-d;
+    &__top{
+        position: relative;
+        width: 237px;
+        height: 180px;
+        overflow: hidden;
+        flex-shrink: 1;
+        background-color: #ccc;
+        &-img{
+            // @include midimg;
+            width: 100%;
+            height: 100%;
+        }
+        &-discount{
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            border-radius: 12px;
+            background: $c2-e;
+            h6{
+                @include s6;
+                color: $c2-a;
+                padding: 0 8px;
+            }
+        }
+    }
+    &__bottom{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        &-info{
+            h5{
+                @include s5;
+            }
+            p{
+                @include cap-d;
+            }
+        }
+        &-price{
+            display: flex;
+            justify-content: space-between;
+            h4{
+                @include s4;
+            }
+        }
+    }
+}

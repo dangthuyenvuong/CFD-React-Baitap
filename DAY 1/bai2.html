@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="assets/bai2.css">
+</head>
+<body>
+    <div class="cartbg">
+        <div class="cart">
+            <div class="cart__item cart__item1">
+                <div class="cart__item-img">
+                </div>
+                <div class="b">
+                    +1
+                </div>
+                <div class="b0">
+                    -1
+                </div>
+                <div class="cart__item-amount">
+                    0
+                </div>
+            </div>
+            <div class="cart__item cart__item2">
+                <div class="cart__item-img">
+                </div>
+                <div class="b">
+                    +10
+                </div>
+                <div class="b0">
+                    +20
+                </div>
+                <div class="b b2">
+                    -10
+                </div>
+                <div class="b0 b3">
+                    -20
+                </div>
+                <div class="cart__item-amount">
+                    0
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let updatePrice = (soluong,ele) =>{
+            ele.innerText = soluong
+            return (num) => (ev)=>{
+            soluong += num
+            ev.currentTarget.parentNode.querySelector('.cart__item-amount').innerText = soluong
+        }
+        }
+        let total1= document.querySelector('.cart__item1 .cart__item-amount')
+        let item1 = updatePrice(10, total1)
+        document.querySelector('.cart__item1 .b').addEventListener('click',item1(1))
+        document.querySelector('.cart__item1 .b0').addEventListener('click',item1(-1))
+
+        let item2 = updatePrice(100, document.querySelector('.cart__item2 .cart__item-amount'))
+        document.querySelector('.cart__item2 .b').addEventListener('click',item2(10))
+        document.querySelector('.cart__item2 .b0').addEventListener('click',item2(20))
+        document.querySelector('.cart__item2 .b2').addEventListener('click',item2(-10))
+        document.querySelector('.cart__item2 .b3').addEventListener('click',item2(-20))
+    </script>
+</body>
+</html>

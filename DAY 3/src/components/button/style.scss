@@ -1,0 +1,64 @@
+@import '../../assets/css/style.scss';
+
+button.button{
+    font-family: 'pb' !important;
+    font-size: var(--body15-fs);
+    line-height: var(--body15-lh);
+    padding: 5px 10px;
+    background: $c1-j;
+    color: $c1-a;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    border: none;
+    cursor: pointer;
+
+    &.type-icon-right{
+        svg{
+            transform: rotate(-90deg);
+        }
+    }
+    &.type-icon-left{
+        transform: rotate(90deg);
+    }
+
+
+    &.size-medium{
+        padding: 10px 16px;
+    }
+
+    &.size-large{
+        padding: 15px 46px;
+    }
+    
+    &.color-bright{
+        background-color: $c1-f;
+        svg{
+            path{
+                stroke: $c1-a;
+            }
+        }
+    }
+    &.color-colored{
+        background-color: $c2-a;
+        border: 2px solid $c2-b;
+        color: $c1-j;
+        svg{
+            path{
+                stroke: $c1-j;
+            }
+        }
+    }
+
+    &.color-stroke{
+        border: 2px solid $c2-c;
+        background-color: transparent;
+        svg{
+            path{
+                stroke: $c2-b;
+            }
+        }
+    }
+}

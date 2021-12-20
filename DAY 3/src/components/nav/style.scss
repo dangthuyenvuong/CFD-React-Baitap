@@ -1,0 +1,23 @@
+@import '../../assets/css/style.scss';
+
+
+.header__nav{
+    background-color: $c1-g;
+    .container{
+        ul{
+            display: flex;
+            gap: 40px;
+            li{
+                display: flex;
+                align-items: center;
+                padding: 16px 0;
+                gap: 2px;
+                p{
+                    font-family: 'ps';
+                    font-size: var(--body15-fs);
+                    line-height: var(--body15-lh);
+                }
+            }
+        }
+    }
+}
