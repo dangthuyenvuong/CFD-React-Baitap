@@ -21,8 +21,8 @@ function App() {
   
   const [textActive, setTextActive] = useState(false)
 
-  const [checkbox, setCheckbox] = useState(false)
-  const [checkbox2, setCheckbox2] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+
 
   const [error, setError] = useState({})
   
@@ -36,7 +36,7 @@ function App() {
       }
   
   }
-  const submit = () => {
+  const submit = async (ev) => {
     let objError = {}
 
     if(!username.trim()){
@@ -48,7 +48,7 @@ function App() {
     if(!formValue.password.trim()){
       objError.password = 'Giá trị không được bỏ trống'
     }else if(!passRegexp.test(formValue.password)){
-      objError.password = 'Giá trị phải là 1 email chính xác'
+      objError.password = 'Giá trị phải chưa 1 chữ thường, 1 chữ hoa, số và ký tự đặc biệt'
     }
 
     if(formValue.rePassword !== formValue.password){
@@ -59,23 +59,21 @@ function App() {
       objError.age = 'Bé cần phải lớn hơn 18 chủi'
     }
 
-    if(!checkbox && !checkbox2 ){
+    if(!formValue.check){
       objError.all = 'vui lòng xác nhận trước khi submit'
-    }else if(!checkbox){
-      objError.all = 'vui lòng đọc lại quy định và chọn yes'
+    }else if(formValue.check === 'no'){
+      objError.all = 'vui lòng đọc lại quy định và chọn yes để tiếp tục'
     }
 
     setError(objError)
+
+    if(Object.keys(objError).length === 0){
+      setIsLoading(true)
+    }
   }
 
-  const modifyCheckbox = () =>{
-    if(checkbox){
-      setCheckbox(false)
-      setCheckbox2(true)
-    }else{
-      setCheckbox2(false)
-      setCheckbox(true)
-    }
+  const handleChecbox = (ev) => {
+    setFormValue({...formValue, check: ev.currentTarget.value})
   }
 
   return (
@@ -87,10 +85,10 @@ function App() {
       <Input label='Confirm password' text='password' placeholder=' Confirm password' size='large' error={error.rePassword} onchange={(ev) => setFormValue({...formValue, rePassword: ev.currentTarget.value})}></Input>
       <Select onchange={selectChange} textActive={textActive}/>
       <Input label='Age' size='medium' error={error.age} onchange={(ev) => setFormValue({...formValue, age: ev.currentTarget.value})}></Input>
-      <Checkbox value='yes' onclick={modifyCheckbox} checked={checkbox}/>
-      <Checkbox value='no' onclick={modifyCheckbox} checked={checkbox2}/>
-      <p>{error.all}</p>
-      <Button color='colored' onclick={submit}>Submit</Button>
+      <Checkbox type='radio' onchange={handleChecbox} name='rule' value='yes'/>
+      <Checkbox type='radio' onchange={handleChecbox} name='rule' value='no'/>
+      <p style={{color: 'red'}}>{error.all}</p>
+      <Button size='medium' color='colored' onclick={submit} loading={isLoading} >Submit</Button>
       </form>
     </div>
   );

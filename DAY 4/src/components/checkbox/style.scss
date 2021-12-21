@@ -1,9 +1,8 @@
-.checkForm{
-    display: flex;
-    gap: 50px;
-    .checkbox{
-        p{
-            line-height: 0;
-        }
+
+.checkbox{
+        display: inline-block;
+        margin-right: 20px;
+    p{
+        line-height: 0;
     }
 }
