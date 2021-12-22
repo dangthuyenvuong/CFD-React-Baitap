@@ -4,17 +4,17 @@ import { Link, NavLink } from 'react-router-dom'
 import Button from '../../components/Button'
 
 export const ProfileLayout = ({ login, submitLogout }) => {
-    const navigate = useNavigate()
-    // const [link, setLink] = useState('')
+    // const navigate = useNavigate()
+    // // const [link, setLink] = useState('')
 
-    const buttonClick = () => {
-        navigate('/')
-        // setLink('/')
-    }
+    // const buttonClick = () => {
+    //     navigate('/')
+    //     // setLink('/')
+    // }
+    // if (!login) return <Navigate to="/">
 
-        
-    // if(link) return <Navigate to={link}/>
-    if(!login) return <Navigate to="/"/>
+    if (!login) return <Navigate to="/" />
+
 
     return (
         <div>
@@ -30,8 +30,8 @@ export const ProfileLayout = ({ login, submitLogout }) => {
                 </li>
             </ul>
             <Button onClick={submitLogout}>Logout</Button>
-            <Button onClick={buttonClick}>Go to Homepage</Button>
             <Outlet />
         </div>
+
     )
 }

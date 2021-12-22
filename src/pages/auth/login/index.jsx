@@ -1,12 +1,11 @@
-import React from 'react'
-import Button from '../../../components/Button'
+import React from "react"
+import Button from "../../../components/Button"
+export default function Login({ submitLogin }) {
 
-export const Login = ({ submitLogin }) => {
     return (
         <div>
-            <Button onClick={submitLogin}>Login</Button>
+            <Button onClick={submitLogin} >Login</Button>
         </div>
+
     )
 }
-
-export default Login
