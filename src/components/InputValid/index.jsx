@@ -5,6 +5,7 @@ export function ValidInput({ name, type }) {
     const emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,32}$/
     const nameRegex = /(.*[a-z]){2}/i
+    const ageRegex = /^[0-9]+$/
     const [form, setForm] = useState({
         username: "",
         password: "",
@@ -59,8 +60,10 @@ export function ValidInput({ name, type }) {
             errorObject.confirm = "* nhap lai sai pass"
         } if (!nameRegex.test(form.name)) {
             errorObject.name = "* Tên phải có 2 ký tự trở len"
-        } if (form.age < 18) {
-            errorObject.age = "* Bạn phải đủ 18 tuổi"
+        } if (!ageRegex.test(form.age)) {
+            errorObject.age = "* Bạn phải nhap tuổi"
+        } else if (form.age < 18) {
+            errorObject.age = "* Bạn phải du 18 tuổi"
         }
         console.log(form);
         setError(errorObject);
@@ -143,43 +146,46 @@ export function ValidInput({ name, type }) {
             </form> */}
 
             <form onSubmit={submit}>
-                <h1 className="">Register</h1>
-                <TextField label="username"
-                    type="text"
-                    value={form.username}
-                    errorText={error.username}
-                    onChange={change("username")}
-                    placeholder="Example@gmail.com"
-                />
-                <TextField
-                    label="password"
-                    type="password"
-                    value={form.password}
-                    errorText={error.password}
-                    onChange={change("password")}
-                />
-                <TextField
-                    label="confirm"
-                    type="password"
-                    value={form.confirm}
-                    errorText={error.confirm}
-                    onChange={change("confirm")}
-                />
-                <TextField
-                    label="name"
-                    type="text"
-                    value={form.name}
-                    errorText={error.name}
-                    onChange={change("name")}
-                />
-                <TextField
-                    label="age"
-                    type="text"
-                    value={form.age}
-                    errorText={error.age}
-                    onChange={change("age")}
-                />
-                <button className="button" >Submit</button>
+                <h1 className="h1">Register</h1>
+                <div className="register__form">
+
+                    <TextField label="Username"
+                        type="text"
+                        value={form.username}
+                        errorText={error.username}
+                        onChange={change("username")}
+                        placeholder="Example@gmail.com"
+                    />
+                    <TextField
+                        label="Password"
+                        type="password"
+                        value={form.password}
+                        errorText={error.password}
+                        onChange={change("password")}
+                    />
+                    <TextField
+                        label="Confirm"
+                        type="password"
+                        value={form.confirm}
+                        errorText={error.confirm}
+                        onChange={change("confirm")}
+                    />
+                    <TextField
+                        label="Name"
+                        type="text"
+                        value={form.name}
+                        errorText={error.name}
+                        onChange={change("name")}
+                    />
+                    <TextField
+                        label="Age"
+                        type="text"
+                        value={form.age}
+                        errorText={error.age}
+                        onChange={change("age")}
+                    />
+                    <button className="button" >Submit</button>
+                </div>
 
             </form>
 
