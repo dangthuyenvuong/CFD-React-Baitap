@@ -1,13 +1,14 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import Button from './week_1/Button';
-import Accordian from './week_1/Accordian';
-import Tabs from './week_1/Tabs';
+import ValidateForm from './week_1/Form';
+// import Accordian from './week_1/Accordian';
+// import Tabs from './week_1/Tabs';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
 
         <Button size='medium' color='stroke' children='Button'></Button>
@@ -15,7 +16,10 @@ function App() {
         <Accordian title='Click here' children='Lorem asadadas'></Accordian>
         <Tabs />
 
-      </header>
+      </header> */}
+      <ValidateForm />
+
+
     </div>
   );
 }

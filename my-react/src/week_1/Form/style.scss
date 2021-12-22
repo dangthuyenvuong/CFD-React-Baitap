@@ -1,0 +1,41 @@
+.checkout-page {
+
+    .regis-form {
+        width: 400px;
+        margin: 0 auto;
+        flex-direction: column;
+
+        .textField {
+            margin-bottom: 20px;
+
+        }
+
+        .selectArea {
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-right: 20px;
+            float: left;
+        }
+
+        input {
+            padding: 10px;
+            float: right;
+        }
+
+        p {
+            display: inline-block;
+        }
+
+        button {
+            padding: 10px 50px;
+            margin-top: 20px;
+        }
+    }
+}
