@@ -3,10 +3,10 @@ import { useParams } from 'react-router'
 
 export const OrderDetail = () => {
 
-    const { id } = useParams()
+
     return (
         <div>
-            OrderDetail {id}
+            OrderDetail
         </div>
     )
 }

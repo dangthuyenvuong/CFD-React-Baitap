@@ -1,17 +1,18 @@
-import { useState } from "react";
+import { Profiler, useState } from "react";
 import "../src/assets/css/style.scss"
 
-import Home from './pages/home'
+import Home from './pages/Home'
 import About from './pages/About'
 import Contact from './pages/Contact'
 
-import Info from './pages/profile/info'
-import Address from './pages/profile/address'
-import Order from './pages/profile/order'
-import OrderDetail from './pages/profile/order_detail'
+import Info from './pages/profile/Info'
+import Address from './pages/profile/Address'
+import Order from './pages/profile/Order'
+import OrderDetail from './pages/profile/Order-detail'
 
-import Login from './pages/auth/login'
-
+import Payment from './pages/profile/Payment'
+// import Login from './pages/auth/Login'
+import AuthContext from "./context"
 import {
   BrowserRouter,
   Route,
@@ -24,110 +25,78 @@ import {
   useLocation,
 } from 'react-router-dom'
 import NotFound from './pages/notFound'
-import { MainLayout } from "./layout/MainLayout";
-import { ProfileLayout } from "./layout/ProfileLayout";
+import MainLayout from "./layout/MainLayout";
+import ProfileLayout from "./layout/ProfileLayout";
 import { AuthLayout } from "./layout/AuthLayout";
 import { ValidInput } from "./components/InputValid";
+import AuthProvider from "./context";
+import Login from "./pages/auth/Login";
+import MyProfile from "./pages/profile/My-profile";
+
+import PaymentDetail from "./pages/profile/Payment-detail";
+import AddressDetail from "./pages/profile/Address-detail";
+import Cart from "./pages/profile/Cart";
 export default function App() {
   const [login, setLogin] = useState(false);
-
-  const submitLogin = () => {
+  function submitLogin() {
     setLogin(true);
-    console.log("login")
+  }
+  function submitLogout() {
+    setLogin(false);
   }
 
-  const submitLogout = () => {
-    setLogin(false);
-    console.log("logout")
-  }
 
   return (
-
-    // <BrowserRouter>
-    //   <ul>
-    //     <li>
-    //       <Link to="/">Home</Link>
-    //     </li>
-    //     <li>
-    //       <Link to="/about">About</Link>
-    //     </li>
-    //     <li>
-    //       <Link to="/contact">Contact</Link>
-    //     </li>
-    //     <li>
-    //       <Link to="/profile">Profile</Link>
-    //     </li>
-
-    //     <li>
-    //       <Link to="/login">Login</Link>
-    //     </li>
-    //   </ul>
-
-    //   <main id="main-content">
-    //     <Routes>
-    //       <Route path="/" element={<MainLayout />}>
-    //         <Route index element={<Home />} />
-    //         <Route path="/about" element={<About />} />
-    //         <Route path="/contact" element={<Contact />} />
-    //         <Route path="/profile" element={<ProfileLayout login={login} submitLogout={submitLogout} />}>
-    //           <Route index element={<Info />} />
-    //           <Route path="address" element={<Address />} />
-    //           <Route path="order" element={<Order />} />
-    //           <Route path="order/:id" element={<OrderDetail />} />
-    //         </Route>
-    //       </Route>
-
-    //       <Route path="/" element={<AuthLayout login={login} />}>
-    //         <Route path="login" element={<Login submitLogin={submitLogin} />} />
-    //       </Route>
-
-    //       <Route path="*" element={<NotFound />} />
-    //     </Routes>
-    //   </main>
-    // </BrowserRouter>
-    // <BrowserRouter>
-    //   <ul className="">
-    //     <li className="">
-    //       <Link to="/">Home</Link>
-    //     </li>
-    //     <li className="">
-    //       <Link to="/about">about</Link>
-    //     </li>
-    //     <li className="">
-    //       <Link to="/contact">contact</Link>
-    //     </li>
-    //     <li>
-    //       <Link to="/profile">Profile</Link>
-    //     </li>
-
-    //     <li>
-    //       <Link to="/login">Login</Link>
-    //     </li>
-    //   </ul>
-    //   <main id="main-content">
-    //     <Routes>
-    //       <Route path="/" element={<MainLayout />}>
-    //         <Route index element={<Home />} />
-    //         <Route path="/About" element={<About />} />
-    //         <Route path="/Contact" element={<Contact />} />
-    //         <Route path="/profile" element={<ProfileLayout login={login} submitLogout={submitLogout} />}>
-    //           <Route index element={<Info />} />
-    //           <Route path="address" element={<Address />} />
-    //           <Route path="order" element={<Order />} />
-    //           <Route path="order/:id" element={<OrderDetail />} />
-    //         </Route>
-    //       </Route>
-    //       <Route path="/" element={<AuthLayout login={login} />} >
-    //         <Route path="login" element={<Login submitLogin={submitLogin} />} />
-    //       </Route>
-    //       <Route path="*" element={<NotFound />} />
-
-    //     </Routes>
-    //   </main>
-    // </BrowserRouter>
     <>
 
-      <ValidInput name="email" type="password" />
+      <BrowserRouter>
+        <ul className="">
+          <li>
+            <Link to="/Home">Home</Link>
+          </li>
+          <li>
+            <Link to="/About">About</Link>
+          </li>
+          <li>
+            <Link to="/Contact">Contact</Link>
+          </li>
+          <li>
+            <Link to="/profile">Profile</Link>
+          </li>
+          {/* <li>
+            <Link to="/Login">Cart</Link>
+          </li> */}
+          <li>
+            <Link to="/Login">Login</Link>
+          </li>
+        </ul>
+        <main id="main-content">
+          <Routes>
+
+            <Route path="/" element={<MainLayout />}>
+              <Route index element={<Home />} />
+              <Route path="/About" element={<About />} />
+              <Route path="/Contact" element={<Contact />} />
+              <Route path="/profile" element={<ProfileLayout login={login} submitLogout={submitLogout} />} >
+                <Route index element={<MyProfile />} />
+                <Route path="Order" element={<Order />} />
+                <Route path="Order-detail" element={<OrderDetail />} />
+                <Route path="Payment" element={<Payment />} />
+                <Route path="Payment-detail" element={<PaymentDetail />} />
+                <Route path="Address" element={<Address />} />
+                <Route path="Address-detail" element={<AddressDetail />} />
+                <Route path="Cart" element={<Cart />} />
+              </Route >
+            </Route>
+            <Route path="/" element={<AuthLayout login={login} />}>
+              <Route path="Login" element={<Login submitLogin={submitLogin} />} />
+            </Route>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
+      </BrowserRouter>
+
+
 
     </>
   );

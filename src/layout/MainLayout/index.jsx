@@ -1,14 +1,15 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 
-export const MainLayout = () => {
+export default function MainLayout() {
     return (
         <div>
-            <div>Header</div>
+            <div className="">header</div>
             <main id="main-content">
                 <Outlet />
             </main>
-            <div>Footer</div>
+            <div className="">footer</div>
+
         </div>
     )
 }

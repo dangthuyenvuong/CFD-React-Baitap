@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Order() {
+export default function AddressDetail() {
     return (
         <div>
-            order
+            Address Detail
         </div>
     )
 }

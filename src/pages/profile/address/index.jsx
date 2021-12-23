@@ -1,12 +1,9 @@
 import React from 'react'
 
-export const Address = () => {
+export default function Address() {
     return (
         <div>
-            Address
+            address
         </div>
     )
 }
-
-
-export default Address

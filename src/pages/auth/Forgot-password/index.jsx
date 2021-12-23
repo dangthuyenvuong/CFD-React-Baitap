@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Order() {
+export default function ForgotPassword() {
     return (
         <div>
-            order
+            forgot password
         </div>
     )
 }

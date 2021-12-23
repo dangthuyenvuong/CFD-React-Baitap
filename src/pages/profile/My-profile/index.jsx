@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Order() {
+export default function MyProfile() {
     return (
         <div>
-            order
+            my profile
         </div>
     )
 }

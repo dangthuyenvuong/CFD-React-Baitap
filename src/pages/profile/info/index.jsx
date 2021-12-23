@@ -1,11 +1,9 @@
 import React from 'react'
 
-export const Info = () => {
+export default function Info() {
     return (
         <div>
-            Info
+            info
         </div>
     )
 }
-
-export default Info
