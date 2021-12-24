@@ -1,15 +1,15 @@
-import { useState } from "react";
 
-import Home from './pages/home'
+import Home from './pages/Home'
 import About from './pages/About'
 import Contact from './pages/Contact'
 
-import Info from './pages/profile/info'
-import Address from './pages/profile/address'
-import Order from './pages/profile/order'
-import OrderDetail from './pages/profile/order_detail'
+import Info from './pages/Profile/info'
+import Address from './pages/Profile/address'
+import Order from './pages/Profile/order'
+import OrderDetail from './pages/Profile/order_detail'
 
-import Login from './pages/auth/login'
+import Login from './pages/Auth/login'
+import 'assets/css/style.scss'
 
 import {
   BrowserRouter,
@@ -21,66 +21,41 @@ import {
   NavLink,
   Outlet,
   useLocation,
+  useNavigate
 } from 'react-router-dom'
-import NotFound from './pages/notFound'
+import NotFound from './pages/NotFound'
 import { MainLayout } from "./layout/MainLayout";
 import { ProfileLayout } from "./layout/ProfileLayout";
 import { AuthLayout } from "./layout/AuthLayout";
+import Checkout from "pages/Checkout";
+import { AuthProvider } from "context/AuthContext";
+import { PageProvider } from 'context/PageContext'
 
 export default function App() {
-  const [login, setLogin] = useState(true)
-
-  const submitLogin = () => {
-    setLogin(true)
-  }
-
-  const submitLogout = () => {
-    console.log('logout')
-    setLogin(false)
-  }
-
   return (
     <BrowserRouter>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/contact">Contact</Link>
-        </li>
-        <li>
-          <Link to="/profile">Profile</Link>
-        </li>
-
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
-      </ul>
-
-      <main id="main-content">
-        <Routes>
-          <Route path="/" element={<MainLayout />}>
-            <Route index element={<Home />} />
-            <Route index path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/profile" element={<ProfileLayout login={login} submitLogout={submitLogout} />}>
-              <Route index element={<Info />} />
-              <Route path="address" element={<Address />} />
-              <Route path="order" element={<Order />} />
-              <Route path="order/:id" element={<OrderDetail />} />
+      <PageProvider>
+        <AuthProvider>
+          <Routes>
+            <Route path="*" element={<NotFound />} />
+            <Route path="/" element={<MainLayout />}>
+              <Route index element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/profile" element={<ProfileLayout />}>
+                <Route index element={<Info />} />
+                <Route path="address/*" element={<Address />} />
+                <Route path="order" element={<Order />} />
+                <Route path="order/:id" element={<OrderDetail />} />
+              </Route>
             </Route>
-          </Route>
-
-          <Route path="/" element={<AuthLayout login={login} />}>
-            <Route path="login" element={<Login submitLogin={submitLogin} />} />
-          </Route>
-
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </main>
+            <Route path="/" element={<AuthLayout />}>
+              <Route path="login" element={<Login />} />
+            </Route>
+          </Routes>
+        </AuthProvider>
+      </PageProvider>
     </BrowserRouter>
   );
 }

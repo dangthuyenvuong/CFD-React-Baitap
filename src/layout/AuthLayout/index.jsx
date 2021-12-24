@@ -1,9 +1,12 @@
+import { useAuth } from 'context/AuthContext'
 import React from 'react'
 import { Navigate, Outlet } from 'react-router'
 import { Link } from 'react-router-dom'
 
-export const AuthLayout = ({ login }) => {
-    if(login) return <Navigate to="/profile"/>
+export const AuthLayout = () => {
+    const { login } = useAuth()
+
+    if (login) return <Navigate to="/profile" />
     return (
         <div>
             <ul>

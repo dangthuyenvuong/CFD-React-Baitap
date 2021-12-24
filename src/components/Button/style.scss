@@ -1,17 +1,19 @@
-@import '../../assets/css/style';
+@import 'assets/css/import';
 
 .Button{
     --height: 30px;
-    --color: #{$main-color};
+    --background: #{$main-color};
     --radius: 5px;
+    --color: black;
 
     height: var(--height);
-    background: var(--color);
+    background: var(--background);
     border-radius: var(--radius);
     padding: 0 20px;
     line-height: var(--height);
     border: none;
     cursor: pointer;
+    color: var(--color);
 
     @include css3(transition, all 0.3s ease);
     &.size{
@@ -27,7 +29,7 @@
 
     &.type{
         &-default{
-
+            --color: white;
         }
         &-icon-left{
 
@@ -43,5 +45,15 @@
 
     &.round{
         border-radius: 100px;
+    }
+
+    .lds-roller{
+        width: 40px;
+        height: 21.8px;
+        @include css3(transform, scale(0.3));
+    }
+    &:disabled{
+        opacity: 0.5;
+        cursor: not-allowed;
     }
 }

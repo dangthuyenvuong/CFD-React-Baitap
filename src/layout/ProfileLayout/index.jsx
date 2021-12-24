@@ -1,9 +1,13 @@
-import React from 'react'
+import { useAuth } from 'context/AuthContext'
+import React, { useContext } from 'react'
 import { Navigate, Outlet, useNavigate } from 'react-router'
 import { Link, NavLink } from 'react-router-dom'
 import Button from '../../components/Button'
 
-export const ProfileLayout = ({ login, submitLogout }) => {
+export const ProfileLayout = () => {
+
+    const { login, submitLogout } = useAuth()
+
     const navigate = useNavigate()
     // const [link, setLink] = useState('')
 
@@ -12,9 +16,9 @@ export const ProfileLayout = ({ login, submitLogout }) => {
         // setLink('/')
     }
 
-        
+
     // if(link) return <Navigate to={link}/>
-    if(!login) return <Navigate to="/"/>
+    if (!login) return <Navigate to="/" />
 
     return (
         <div>
