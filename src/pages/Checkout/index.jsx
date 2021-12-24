@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import Button from "../../../components/Button";
-import TextField from "../../../components/TextField";
+import Button from "../../components/Button";
+import TextField from "../../components/TextField";
+import { useAuth } from "../../context/AuthContext";
 
 const Checkout = () => {
   const [form, setform] = useState({ userName: "", password: "" });

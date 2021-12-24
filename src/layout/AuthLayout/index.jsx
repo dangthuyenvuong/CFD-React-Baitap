@@ -1,21 +1,24 @@
-import React from 'react'
-import { Navigate, Outlet } from 'react-router'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Navigate, Outlet } from "react-router";
+import { Link } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
-export const AuthLayout = ({ login }) => {
-    if(login) return <Navigate to="/profile"/>
-    return (
-        <div>
-            <ul>
-                <li>
-                    <Link to="login">Login</Link>
-                    <Link to="register">Register</Link>
-                    <Link to="forgot-password">Forgot password</Link>
-                </li>
-            </ul>
-            <Outlet />
-        </div>
-    )
-}
+export const AuthLayout = ({}) => {
+  const { login } = useAuth();
 
-export default AuthLayout
+  if (login) return <Navigate to="/profile" />;
+  return (
+    <div>
+      <ul>
+        <li>
+          <Link to="login">Login</Link>
+          <Link to="register">Register</Link>
+          <Link to="forgot-password">Forgot password</Link>
+        </li>
+      </ul>
+      <Outlet />
+    </div>
+  );
+};
+
+export default AuthLayout;
