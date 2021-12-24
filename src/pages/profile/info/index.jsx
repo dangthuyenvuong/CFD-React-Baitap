@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
 
 export const Info = () => {
-    return (
-        <div>
-            Info
-        </div>
-    )
-}
+  //   const { login } = useAuth();
 
-export default Info
+  return <div>Info</div>;
+};
+
+export default Info;
