@@ -1,0 +1,21 @@
+@import '../../assets/css/style.scss';
+.quote {
+    padding: 24px 32px;
+    border: 2px solid $blurColor;
+    border-radius: 12px;
+    &_user {
+        font-weight: 600;
+        font-size: 15px;
+        text-align: center;
+        .name {
+            color: $blurColor;
+            margin-top: 24px;
+        }
+    }
+    &_avt {
+        @include displayBlock(50px , 50px , transparent , 50%);
+        margin:0 auto;
+        transform: translateY(calc(24px + 50%));
+        background-size: cover;
+    }
+}

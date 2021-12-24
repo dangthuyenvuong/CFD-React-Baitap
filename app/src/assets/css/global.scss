@@ -1,0 +1,61 @@
+@import './style.scss';
+* {
+ padding: 0;
+ margin : 0;
+ box-sizing: border-box;   
+}
+html , body {
+    font-family: $font;
+    overflow-x: hidden;
+}
+// reset
+input , textarea {
+    padding: 0;margin:0;border:none;
+    &:focus {
+        outline: none;  
+    }
+}
+ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none
+}
+button {
+    outline: none;
+    border:none;
+    cursor: pointer;
+}
+//style
+.textLink {
+    a {
+        text-decoration: none;
+        color: $greenColor;
+    }
+}
+span {
+    font-family: $primaryFont;
+    font-size: var(--fontSize);
+}
+svg {
+    width: 20px;
+    height: 20px;
+}
+.container {
+    max-width: var(--container-width);
+    padding: 0 15px;
+    margin: auto;
+}
+section {
+    .container {
+        padding-top: var(--paddingSection);
+        padding-bottom: var(--paddingSection);
+    }
+}
+.saleBox {
+    background-color: #F4F8EC;
+    color: $greenColor;
+    font-weight: 700;
+    border-radius:10px;
+    padding: 0 8px;
+}
+// animation

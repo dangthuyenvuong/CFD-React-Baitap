@@ -1,0 +1,10 @@
+@import '../style'; // link file scss o component
+
+
+.header {
+    @include flex(space-between , center);
+    height: var(--heightH);
+    &_icons {
+        @include flex(space-between , align-items);
+    }
+}

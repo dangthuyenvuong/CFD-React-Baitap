@@ -1,0 +1,84 @@
+@import '../../assets/css/style.scss';
+
+.inputs {
+    --padding: 16px;
+    &_input {
+        
+        position: relative;
+        @include flex(unset , center);
+        padding-left: var(--padding);
+        input {
+            &[type=text] {
+                @include displayBlock(100% , 100%);
+                &:focus ~ div , &:not(:placeholder-shown) ~ div{
+                    display: none;
+                }
+            }
+            &[type=checkbox] {
+                appearance: none;
+                padding: 10px;
+                border: 1px solid $blurColor;
+                &:checked {
+                    background-color: green;
+                }
+            }
+        }
+        textarea {
+            @include displayBlock(100% , 100%);
+            font-size: 12px;
+            padding-top: 10px;
+            resize: none;
+            & ~ div {
+                top: 10px;
+                transform: translateY(0);
+            }
+            &:focus ~ div , &:not(:placeholder-shown) ~ div{
+                display: none;
+            }
+        }
+        &-placehoder {
+            @include position(50% , 0 , 0 , -50%);
+            @include flex(space-between , center);
+            left: var(--padding);
+            padding-right: var(--padding);
+            user-select: none;
+            pointer-events: none;
+            img {
+                @include flex(center , center);
+                width: 20px;
+                margin-right:10px;
+            }
+            span {
+                color: #A9A9A9;
+            }
+        }
+        &.icon {
+            &-right {
+                .inputs_input-placehoder {
+                    width: 100%;
+                }
+            }
+        }
+        &.type {
+            &-checkbox {
+                width: max-content;
+                .inputs_input-placehoder {
+                    position: static;
+                    transform: translateY(0);
+                    padding-left: calc(var(--padding));
+                    span {
+                        color: $textColor;
+                    }
+                }
+            }
+        }
+        &.size {
+            &-middle {
+                height: 42px;
+            }
+            &-large {
+                height: 112px;
+            }
+        }
+    }
+}

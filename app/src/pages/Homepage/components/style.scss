@@ -1,0 +1,99 @@
+@import '../../../assets/css/style.scss';
+.box_side {
+    width: 290px !important;
+}
+.categoryMenu {
+    .container {
+        height: 100%;
+        display: flex;
+        .categoryMenu_box {
+            width: 100%;
+            @include flex(space-between , unset);
+            .item {
+                width: 48%;
+            }
+        }
+    }
+}
+.bestSelling {
+    height: 500px;
+    .container {
+        display: flex;
+        height: 100%;
+        .bestSelling_box {
+            @include flex(space-between , unset);
+            width: 100%;
+            .item {
+                width: 32%;
+            }
+        }
+    }
+}
+.customerQuotes {
+    position: relative;
+    &_info {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 30px;
+    }
+    &_list {
+        width: 100%;
+        height: 100%;
+        outline: none;
+            .item {
+                padding: 0 16px;
+                width: calc(100% / 3);
+            }
+        .flickity-button {
+            background-color: #222;
+            padding: 10px;
+            position: absolute;
+            top: 50%;
+            cursor: pointer;
+            svg {
+                fill: white;
+            }
+            &.next {
+                border-top-left-radius: 12px;
+                border-bottom-left-radius: 12px;
+                right: 0;
+            }
+            &.previous {
+                border-top-right-radius: 12px;
+                border-bottom-right-radius: 12px;
+            }
+        }
+}
+}
+.productList {
+    .container {
+        .title {
+            margin-bottom: 30px;
+        }
+        .items {
+            display: flex;
+            margin-right: -30px;
+            .item {
+                width: 25%;
+                margin-right: 30px;
+            }
+        }
+    }
+}
+.blogPosts {
+    .container {
+        .title {
+            margin-bottom: 30px;
+        }
+        .posts {
+            display: grid;
+            grid-template-columns: 40% 24% 36%;
+            column-gap: 30px;
+            &_item {
+                &:last-child > div {
+                    margin-bottom: 32px;
+                }
+            }
+        }
+    }
+}

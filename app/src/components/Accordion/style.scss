@@ -1,0 +1,28 @@
+@import '../../assets/css/style.scss';
+.accordion {
+    border-radius: 12px;
+    overflow: hidden;
+    height: auto;
+    transition:padding .3s;
+    &_tab {
+        cursor: pointer;
+    }
+    &_panel {
+        display: grid;
+        grid-template-columns: 3fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-gap: 32px;
+        max-height: 0;
+        transition:max-height .3s;
+        .item1 {
+            grid-column: 1/4;
+        }
+    }
+    &.show {
+        border: 1px solid #D1D1D1;
+        padding: 12px;
+        .accordion_panel {
+            max-height: 300px;
+        }
+    }
+}

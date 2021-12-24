@@ -1,0 +1,31 @@
+@import '../../assets/css/style.scss';
+.SubBanner {
+    position: relative;
+    @include displayBlock(100% , 100% , transparent , 12px);
+    overflow: hidden;
+    &_text {
+        @include displayBlock(100% , 100%);
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        padding: 32px;
+        z-index: 2;
+        & > span {
+            color: $greenColor;
+            font-weight: 600;
+        }
+        h3 {
+            line-height: 33px;
+            font-size: 22px;
+        }
+        button {
+            margin-top: auto;
+            align-self: flex-start
+        }
+    }
+    &_img {
+        @include position(50% , 50% , -50% , -50%);
+        @include displayBlock (100% , 100%);
+        object-fit: cover;
+    }
+}

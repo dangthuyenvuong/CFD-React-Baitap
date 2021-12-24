@@ -1,0 +1,58 @@
+@import '../../assets/css/style.scss';
+.productItem {
+    @include displayBlock(100% , auto);
+    padding: 15px;
+    border: 1px solid $blurColor;
+    border-radius: 12px;
+    box-shadow: 0px 0px 0px 0px #ddd;
+    transition: .2s;
+    cursor: pointer;
+    &_img {
+        @include displayBlock(100% , 180px);
+        position: relative;
+        overflow: hidden;
+        img {
+            @include position(0,0);
+            width: 100%;
+            height: 100%;
+            transform: scale(1);
+            object-fit: cover;
+            transition: 0.4s;
+        }
+        &-boxSale {
+            @include position(15px , 75%);
+            opacity: 0;
+            z-index: 3;
+            transition-delay: $t;
+        }
+    }
+    &_info {
+        h2 {text-transform: capitalize;}
+        span {color: $blurColor;}
+    }
+    &_cost {
+        margin-top: 25px;
+        .cost {
+            font-weight: 600;
+            span {
+                display: block;
+                font-size: 18px;
+            }
+            .sale {
+                font-size: 12px;
+                color: $blurColor;
+                text-decoration: line-through;
+            }
+        }
+        @include flex(space-between , center);
+    }
+    &:hover {
+        box-shadow: 0px 0px 1px 1px #ddd;
+        .productItem_img {
+            img {
+                transform: scale(1.2)
+            }
+        }
+        .productItem_img-boxSale {opacity: 1;}
+    }
+}

@@ -1,0 +1,64 @@
+@import '../../assets/css/style.scss';
+.searchBar {
+    @include displayBlock(500px , 42px , $grayColor,10px);
+    border: 1px solid $blurColor;
+    display: flex;
+    .select {
+        @include displayBlock(30% , 100%);
+        position: relative;
+        &_box {
+            @include displayBlock(100% , 100% , $grayColor , 10px);
+            overflow: hidden;
+            &:hover {
+                height: auto;
+                .item::after {
+                    background-color: $blurColor;
+                }
+            }
+            .item {
+                @include displayBlock(100% , 42px,transparent,10px);
+                @include flex(center , center , column);
+                font-weight: 700;
+                font-size: 15px;
+                cursor: pointer;
+                &::after {
+                    content: "";
+                    @include displayBlock(80% , 1px);
+                    margin-top: auto;
+                }
+                &:last-child {
+                    &::after {
+                        display: none;
+                    }
+                    span {
+                        margin-top: 0;
+                    }
+                }
+                &:hover {
+                    background-color: black;
+                    color: white
+                }
+                span {
+                    margin-top: auto;
+                }
+            }
+        }
+        svg {
+            @include position(50% , calc(100% - 25px) , 0% , -50%);
+            transform: translate(0 ,-50%) !important;
+        }
+    }
+    .text {
+        width: 70%;
+        display: flex;
+        align-items: center;
+        padding-right: 10px;
+        input {
+            display: block;
+            width: 100%;
+            background-color: transparent;
+            border-left: 1px solid $blurColor;
+            padding-left: 10px;
+        }
+    }
+}

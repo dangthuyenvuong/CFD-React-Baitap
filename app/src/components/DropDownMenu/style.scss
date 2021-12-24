@@ -1,0 +1,15 @@
+@import '../../assets/css/style.scss';
+.dropDownMenu {
+    .container {
+        .menu {
+            @include flex(space-between , center);
+            li {
+                @include flex(unset , center);
+                text-transform: capitalize;
+                cursor: pointer;
+                padding: 16px 8px;
+                font-weight: 700;
+            }
+        }
+    }
+}

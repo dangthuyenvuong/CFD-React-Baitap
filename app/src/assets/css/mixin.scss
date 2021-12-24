@@ -1,0 +1,19 @@
+@mixin displayBlock ($width , $height , $color: transparent , $radius : 0)
+{
+    width: $width;
+    height: $height;
+    background-color: $color;
+    border-radius: $radius;
+}
+@mixin flex($x , $y , $flexDirection : row) {
+    display:flex;
+    justify-content: $x;
+    align-items: $y;
+    flex-direction:$flexDirection;
+}
+@mixin position($top , $left , $translateX : 0 , $translateY : 0) {
+    position: absolute;
+    top: $top;
+    left: $left;
+    transform: translate($translateX , $translateY);
+}

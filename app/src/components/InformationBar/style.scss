@@ -1,0 +1,15 @@
+@import '../../assets/css/style.scss';
+.informationBar {
+    @include displayBlock(100% , auto);
+    @include flex(space-between , initial);
+    border-bottom: 1px solid $blurColor;
+    &_list:last-child {
+        margin-right: -16px;
+    }
+    span {
+        display: inline-block;
+        padding: 16px;
+        padding-left: 0;
+        text-transform: capitalize;
+    }
+}

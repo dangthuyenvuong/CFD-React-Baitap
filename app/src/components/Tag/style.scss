@@ -1,0 +1,11 @@
+@import '../../assets/css/style.scss';
+.tag {
+    span {
+        font-size: 12px;
+        font-weight: 600;
+        padding: 4px 10px;
+        background-color: $grayColor;
+        border-radius: 12px;
+        cursor: pointer;
+    }
+}

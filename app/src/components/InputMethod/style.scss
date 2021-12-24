@@ -1,0 +1,28 @@
+@import '../../assets/css/style.scss';
+.inputMethod {
+    @include flex(space-between , center);
+    width: 100%;
+    padding:0 15px;
+    height: 48px;
+    span {
+        margin-left: 12px;
+    }
+    &_fee {
+        span {
+            &:first-child {
+                color: $greenColor;
+            }
+        }
+    }
+    &_logo {
+        width: 100px;
+        height: 100%;
+        @include flex(flex-end , center);
+        position: relative;
+        img {
+            height: 100%;
+            @include position(50%,50%,-50%,-50%);
+            object-fit: cover;
+        }
+    }
+}

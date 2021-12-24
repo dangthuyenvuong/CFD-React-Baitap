@@ -1,0 +1,26 @@
+@import '../../assets/css/style.scss';
+footer {
+    .container {
+        .listMenu {
+            padding: var(--paddingSection) 0;
+            @include flex(space-between , center);
+        }
+        .productTags {
+            padding-bottom: var(--paddingSection);
+            &_title {margin-bottom: 30px;}
+            &_list {
+                margin-right: -16px;
+                .item{
+                    display: inline-block;
+                    margin-right: 16px;
+                    margin-bottom: 16px;
+                }
+            }
+            p {
+                margin-top: 48px;
+                font-weight: 400;
+                font-size: 14px;
+            }
+        }
+    }
+}

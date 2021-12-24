@@ -1,0 +1,19 @@
+@import '../../assets/css/style.scss';
+.miniCard {
+    padding:7px;
+    position: relative;
+    cursor: pointer;
+    &:hover {
+        background-color: $grayColor;
+    }
+    &_circle {
+        @include displayBlock(15px , 15px , #E5704B , 50%);
+        @include flex(center , center);
+        @include position(50%,0);
+        span {
+            font-size: 12px;
+            color: white;
+        }
+        
+    }
+}
