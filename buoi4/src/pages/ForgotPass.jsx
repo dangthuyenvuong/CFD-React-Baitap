@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Address() {
+export function ForgotPass() {
     return (
         <div>
-            Address
+            Forgot pass
         </div>
     )
 }

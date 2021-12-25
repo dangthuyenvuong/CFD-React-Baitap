@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function NotFound() {
+export function ViewCard() {
     return (
         <div>
-            NotFound
+            View card
         </div>
     )
 }
