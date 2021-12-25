@@ -1,8 +1,8 @@
 import React from 'react'
-import { Heart, Compare , Close} from '../icons';
+import { Heart, Compare , Close, Star} from '../icons';
 import './style.scss';
 
-export function ProductCard({url= 'imgs/1.jpg'}) {
+export function ProductCard({url= 'imgs/1.jpg' , title='Product title'}) {
     return (
         <div className='productCard'>
             <div className='productCard_controls'>
@@ -25,8 +25,21 @@ export function ProductCard({url= 'imgs/1.jpg'}) {
             <div className='productCard_info'>
                 <div className='productCard_info-text'>
                     <div className='name'>
-                        
+                        <h3>{title}</h3>
+                        <p><span>Farm:</span><span>Tharamis Farm</span></p>
+                        <p><span>Freshness:</span><span>1 day old</span></p>
                     </div>
+                </div>
+                <div className='productCard_info-rate'>
+                    <Star background='#FDBC15'/>
+                    <Star background='#FDBC15'/>
+                    <Star background='#FDBC15'/>
+                    <Star background='#FDBC15'/>
+                    <Star/>
+                </div>
+                <div className='productCard_info-cost'>
+                    <span>36.99 USD</span>
+                    <span>48.56 USD</span>
                 </div>
             </div>
         </div>

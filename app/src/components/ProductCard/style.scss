@@ -1,6 +1,7 @@
 @import '../../assets/css/style.scss';
 .productCard {
     display: flex;
+    border-bottom: 2px solid $grayColor;
     span {
         color: #A9A9A9;
         font-size: 12px;
@@ -36,7 +37,29 @@
         p {
             span:first-child {
                 display: inline-block;
-                width: 200px;
+                width: 80px;
+            }
+            span:last-child {
+                color: $textColor;
+                font-weight: 600;
+            }
+        }
+        &-rate {
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        &-cost {
+            span {
+                display: block;
+                font-weight: 600;
+                color: #6A983C;
+                font-size: 18px;
+                line-height: 27px;
+                &:last-child {
+                    color: #A9A9A9;
+                    font-size: 12px;
+                    text-decoration: line-through;
+                }
             }
         }
     }

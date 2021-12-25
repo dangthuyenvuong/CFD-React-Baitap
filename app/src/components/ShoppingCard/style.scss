@@ -1,0 +1,46 @@
+@import '../../assets/css/style.scss';
+.shoppingCard {
+    &_list {
+        &> li {
+            margin-bottom: 32px;
+        }
+    }
+    &_bill {
+        p {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        &-total {
+            .input {
+                position: relative;
+                margin: 32px 0;
+                label {
+                    position: absolute;
+                    right: 15px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    font-size: 15px;
+                    font-weight: 700;
+                    z-index: 3;
+                }
+            }
+            .number {
+                @include flex(space-between , center);
+                p {
+                    flex-direction: column;
+                    span:last-child {
+                        color: $greenColor;
+                        font-weight: 400;
+                    }
+                }
+                div {
+                    color: $greenColor;
+                    font-size: 26px;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
