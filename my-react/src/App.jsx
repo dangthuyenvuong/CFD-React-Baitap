@@ -1,9 +1,5 @@
-// import logo from './logo.svg';
 import './App.css';
-import Button from './week_1/Button';
 import ValidateForm from './week_1/Form';
-// import Accordian from './week_1/Accordian';
-// import Tabs from './week_1/Tabs';
 
 function App() {
   return (
@@ -18,7 +14,6 @@ function App() {
 
       </header> */}
       <ValidateForm />
-
 
     </div>
   );
