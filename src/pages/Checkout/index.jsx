@@ -31,6 +31,11 @@ const Checkout = () => {
     } else if (form.password.length < 6 || form.password.length > 32) {
       errorObject.password = "Password phải từ 6-32 ký tự";
     }
+    if (!form.confirmpass) {
+      errorObject.confirmpass = "Không được để trống";
+    } else if (form.password !== form.confirmpass) {
+      errorObject.confirmpass = "Password sai";
+    }
     if (!form.name) {
       errorObject.name = "Không được để trống";
     } else if (form.name.length < 2) {
@@ -42,7 +47,7 @@ const Checkout = () => {
       errorObject.age = "Tuổi phải 18+";
     }
     if (!check) {
-      errorObject.check = "Bắt buộc";
+      errorObject.check = "Vui lòng check";
     }
     if (!["it", "dev", "other"].includes(form.option)) {
       errorObject.option = "Vui lòng chọn option";
@@ -95,6 +100,13 @@ const Checkout = () => {
                 helperText={error.password}
               />
               <TextField
+                label="Confirm Password"
+                value={form.confirmpass}
+                onChange={_onChange("confirmpass")}
+                placeHoder="Confirm Password"
+                helperText={error.confirmpass}
+              />
+              <TextField
                 label="Name"
                 value={form.name}
                 onChange={_onChange("name")}
@@ -109,29 +121,35 @@ const Checkout = () => {
                 helperText={error.age}
               />
               <input type="checkbox" value={form.check} onClick={handelClick} />
+              <label>Bắt buộc</label>
               {error.check && (
-                <p className="error-register" style={{ color: "red" }}>
+                <p
+                  className="error-register"
+                  style={{ color: "red", display: "block" }}
+                >
                   {error.check}
                 </p>
               )}
-              <Button>Submit</Button>
-              <label for="cars">Choose a car:</label>
-              <select name="option" id="cars" onChange={SelectChange}>
-                <option value="it">IT</option>
-                <option value="sav">Saab</option>
-                <option value="dev">Develop</option>
-                <option value="other">Other</option>
-              </select>
+              <div style={{ display: "block" }}>
+                <label for="option">Choose option:</label>
+                <select name="option" id="cars" onChange={SelectChange}>
+                  <option value="it">IT</option>
+                  <option value="sav">Saab</option>
+                  <option value="dev">Develop</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div hidden={ishide ? true : false}>
+                <TextField
+                  label="Other"
+                  value={form.other}
+                  onChange={_onChange("other")}
+                  placehoder="other"
+                  helperText={error.other}
+                />
+              </div>{" "}
+              <Button style={{ display: "block" }}>Submit</Button>
             </form>
-            <div hidden={ishide ? true : false}>
-              <TextField
-                label="Other"
-                value={form.other}
-                onChange={_onChange("other")}
-                placehoder="other"
-                helperText={error.other}
-              />
-            </div>
           </div>
         </div>
       </div>
