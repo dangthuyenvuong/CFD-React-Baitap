@@ -132,7 +132,7 @@ const Checkout = () => {
               )}
               <div style={{ display: "block" }}>
                 <label for="option">Choose option:</label>
-                <select name="option" id="cars" onChange={SelectChange}>
+                <select name="option" onChange={SelectChange}>
                   <option value="it">IT</option>
                   <option value="sav">Saab</option>
                   <option value="dev">Develop</option>
@@ -147,7 +147,7 @@ const Checkout = () => {
                   placehoder="other"
                   helperText={error.other}
                 />
-              </div>{" "}
+              </div>
               <Button style={{ display: "block" }}>Submit</Button>
             </form>
           </div>
