@@ -5,7 +5,9 @@ const TextField = ({ label, value, helperText, ...ref }) => {
     <label>
       <div className="label">{label}</div>
       <input type="text" value={value} {...ref} />
-      <p className="erro-text">{helperText}</p>
+      <p className="erro-text" style={{ color: "red" }}>
+        {helperText}
+      </p>
     </label>
   );
 };

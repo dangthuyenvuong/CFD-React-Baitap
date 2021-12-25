@@ -1,42 +1,77 @@
 import React, { useState } from "react";
 import Button from "../../components/Button";
 import TextField from "../../components/TextField";
-import { useAuth } from "../../context/AuthContext";
 
 const Checkout = () => {
-  const [form, setform] = useState({ userName: "", password: "" });
-  const [erro, setErro] = useState({});
+  const [form, setForm] = useState({
+    userName: "",
+    password: "",
+    name: "",
+    age: "",
+    option: "it",
+    other: "",
+  });
+
+  const [error, setErro] = useState({});
+  const [ishide, setHide] = useState(true);
+  const [check, setCheck] = useState(false);
+  const handelClick = () => setCheck(!check);
   const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 
-  const handleInput = (ev) => {
-    setform({
-      ...form,
-      [ev.currentTarget.name]: ev.currentTarget.value,
-    });
-  };
   const submit = (ev) => {
     ev.preventDefault();
-    let erroObject = {};
+    let errorObject = {};
     if (!form.userName.trim()) {
-      erroObject.userName = "Khong de trong";
+      errorObject.userName = "Không được để trống";
     } else if (!emailRegex.test(form.userName)) {
-      erroObject.userName = "vui long dien dung dinh dang";
+      errorObject.userName = "Vui lòng điền đúng định dạng email";
     }
     if (!form.password) {
-      erroObject.password = "khong de trong";
+      errorObject.password = "Không được để trống";
     } else if (form.password.length < 6 || form.password.length > 32) {
-      erroObject.password = "pass phai tu 6 -32 ky tu";
+      errorObject.password = "Password phải từ 6-32 ký tự";
     }
-    setErro(erroObject);
-    if (Object.keys(erroObject).length === 0) {
-      alert("thanh cong");
+    if (!form.name) {
+      errorObject.name = "Không được để trống";
+    } else if (form.name.length < 2) {
+      errorObject.name = "Name bắt buộc có 2 ký tự ";
+    }
+    if (!form.age) {
+      errorObject.age = "Không được để trống";
+    } else if (Number(form.age) < 18) {
+      errorObject.age = "Tuổi phải 18+";
+    }
+    if (!check) {
+      errorObject.check = "Bắt buộc";
+    }
+    if (!["it", "dev", "other"].includes(form.option)) {
+      errorObject.option = "Vui lòng chọn option";
+      alert("lỗi");
+    }
+    if (form.option === "other" && !form.other) {
+      errorObject.other = "Vui lòng nhập";
+    }
+    setErro(errorObject);
+    if (Object.keys(errorObject).length === 0) {
+      alert("THÀNH CÔNG");
     }
   };
   const _onChange = (name) => (ev) => {
-    setform({
+    setForm({
       ...form,
       [name]: ev.currentTarget.value,
     });
+  };
+  const SelectChange = (e) => {
+    setForm({
+      ...form,
+      option: e.currentTarget.value,
+    });
+    if (e.currentTarget.value === "other") {
+      setHide(false);
+    } else {
+      setHide(true);
+    }
   };
   return (
     <>
@@ -49,18 +84,54 @@ const Checkout = () => {
                 label="UserName"
                 value={form.username}
                 onChange={_onChange("userName")}
-                placehoder="Example@gmail.com"
-                helperText={erro.userName}
+                placeHoder="Example@gmail.com"
+                helperText={error.userName}
               />
               <TextField
                 label="Password"
                 value={form.password}
                 onChange={_onChange("password")}
-                placehoder="Password"
-                helperText={erro.password}
+                placeHoder="Password"
+                helperText={error.password}
               />
+              <TextField
+                label="Name"
+                value={form.name}
+                onChange={_onChange("name")}
+                placeHoder="Name"
+                helperText={error.name}
+              />
+              <TextField
+                label="Age"
+                value={form.age}
+                onChange={_onChange("age")}
+                placeHoder="Age"
+                helperText={error.age}
+              />
+              <input type="checkbox" value={form.check} onClick={handelClick} />
+              {error.check && (
+                <p className="error-register" style={{ color: "red" }}>
+                  {error.check}
+                </p>
+              )}
               <Button>Submit</Button>
+              <label for="cars">Choose a car:</label>
+              <select name="option" id="cars" onChange={SelectChange}>
+                <option value="it">IT</option>
+                <option value="sav">Saab</option>
+                <option value="dev">Develop</option>
+                <option value="other">Other</option>
+              </select>
             </form>
+            <div hidden={ishide ? true : false}>
+              <TextField
+                label="Other"
+                value={form.other}
+                onChange={_onChange("other")}
+                placehoder="other"
+                helperText={error.other}
+              />
+            </div>
           </div>
         </div>
       </div>
