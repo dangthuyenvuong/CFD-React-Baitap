@@ -11,13 +11,15 @@ import {ProfileLayout} from './layout/ProfileLayout';
 import { About, Contact, Home, ViewCard, Checkout, MyProfile, AddressDetail, Order, OrderDetail, Payment, PaymentDetail, Address, Login, ForgotPass, ResetPass, Register} from './pages';
 function App() {
   let [login , setLogin] = useState(false);
-  const handleLogin = () => {
+  let [data , setData] = useState({});
+  const handleLogin = (accout) => {
+    console.log(accout)
     setLogin(true);
+    setData(accout);
   }
   const handleLogout = () => {
     setLogin(false);
   }
-  console.log(login);
   return (
     <BrowserRouter>
     <ul>
@@ -36,8 +38,8 @@ function App() {
           <Route path='/contact' element={<Contact />} />
           <Route path='/viewcard' element={<ViewCard />} />
           <Route path='/checkout' element={<Checkout />} />
-          <Route path='/profile' element={<ProfileLayout  login={login} handleLogout={handleLogout}/>}>
-            <Route index element={<MyProfile />} />
+          <Route path='/profile' element={<ProfileLayout data={data}  login={login} handleLogout={handleLogout}/>}>
+            <Route index element={<MyProfile data={data} />} />
             <Route path='address' element={<Address />} />
             <Route path='address/:id' element={<AddressDetail />} />
             <Route path='order' element={<Order />} />
@@ -48,7 +50,7 @@ function App() {
           </Route>
 
           <Route path='/auth' element={<AuthLayout login={login} />}>
-            <Route index element={<Login LOGIN ={handleLogin} />}/>
+            <Route index element={<Login handleLogin ={handleLogin} />}/>
             <Route path='forgot' element={<ForgotPass />}/>
             <Route path='reset' element={<ResetPass />}/>
             <Route path='register' element={<Register />}/>
