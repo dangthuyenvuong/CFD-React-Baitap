@@ -36,13 +36,18 @@ import MyProfile from "./pages/profile/My-profile";
 import PaymentDetail from "./pages/profile/Payment-detail";
 import AddressDetail from "./pages/profile/Address-detail";
 import Cart from "./pages/profile/Cart";
+import Register from "./pages/auth/Resgister";
 export default function App() {
   const [login, setLogin] = useState(false);
+  const [regis, setRegis] = useState(false);
   function submitLogin() {
     setLogin(true);
   }
   function submitLogout() {
     setLogin(false);
+  }
+  function submitRegis() {
+    setRegis(true);
   }
 
 
@@ -63,9 +68,9 @@ export default function App() {
           <li>
             <Link to="/profile">Profile</Link>
           </li>
-          {/* <li>
-            <Link to="/Login">Cart</Link>
-          </li> */}
+          <li>
+            <Link to="/Resgister">resgister</Link>
+          </li>
           <li>
             <Link to="/Login">Login</Link>
           </li>
@@ -90,6 +95,7 @@ export default function App() {
             </Route>
             <Route path="/" element={<AuthLayout login={login} />}>
               <Route path="Login" element={<Login submitLogin={submitLogin} />} />
+              <Route path="Resgister" element={<Register regis={regis} submitRegis={submitRegis} submitLogin={submitLogin} />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

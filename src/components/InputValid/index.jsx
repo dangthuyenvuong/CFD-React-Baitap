@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+import { Navigate } from 'react-router-dom';
 import TextField from '../TextField';
 import "./style.scss"
-export function ValidInput({ name, type }) {
+export default function InputValid({ regis, name, type, submitRegis }) {
     const emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,32}$/
     const nameRegex = /(.*[a-z]){2}/i
@@ -68,7 +69,9 @@ export function ValidInput({ name, type }) {
         console.log(form);
         setError(errorObject);
         if (Object.keys(errorObject).length === 0) {
-            alert("thanh cong")
+            alert(" dang ky thanh cong");
+            submitRegis()
+
         }
 
     }
@@ -79,71 +82,19 @@ export function ValidInput({ name, type }) {
 
 
 
+    console.log(regis);
     function change(name) {
-        return function (ev) {
-            setForm({ ...form, [name]: ev.target.value });
-
+        return (ev) => {
+            setForm({
+                ...form, [name]: ev.target.value
+            })
         }
-    }
 
+    }
 
     return (
         <>
-            {/* <form onSubmit={submit}>
 
-                <h1 className="">register</h1>
-                <TextField
-                    label="Username"
-                    value={form.username}
-                    onChange={change("username")}
-                    placeholder="Example@gmail.com"
-                    errorText={error.username}
-
-
-                />
-                <TextField
-                    label="Password"
-                    value={form.password}
-                    onChange={change("password")}
-                    placeholder="Password"
-                    type="password"
-                    errorText={error.password}
-
-                />
-                <TextField
-                    label="Confirm Password"
-                    value={form.confirm}
-                    onChange={change("confirm")}
-                    placeholder="Confirm Password"
-                    type="password"
-                    errorText={error.confirm}
-
-                />
-                <TextField
-                    label="Name"
-                    value={form.name}
-                    onChange={change("name")}
-                    placeholder="Name"
-                    type="text"
-                    errorText={error.name}
-
-                />
-                <TextField
-                    label="Age"
-                    value={form.age}
-                    onChange={change("age")}
-                    placeholder="Age"
-                    type="text"
-                    errorText={error.age}
-
-                />
-
-
-
-
-                <button className="button" >Submit</button>
-
-            </form> */}
 
             <form onSubmit={submit}>
                 <h1 className="h1">Register</h1>
@@ -184,7 +135,7 @@ export function ValidInput({ name, type }) {
                         errorText={error.age}
                         onChange={change("age")}
                     />
-                    <button className="button" >Submit</button>
+                    <button onClick={submitRegis} type="submit" className="button" >Submit</button>
                 </div>
 
             </form>

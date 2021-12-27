@@ -8,7 +8,7 @@ export const AuthLayout = ({ login, submitLogin }) => {
         <div>
             <ul className="">
                 <li className="">
-                    <Link to="/Register">Register</Link>
+                    <Link to="/Resgister">Register</Link>
                 </li>
                 <li className="">
                     <Link to="/Forgot-password">Forgot password</Link>
@@ -16,6 +16,7 @@ export const AuthLayout = ({ login, submitLogin }) => {
                 <li className="">
                     <Link to="/Login">Login</Link>
                 </li>
+
                 <Outlet />
             </ul>
 
