@@ -2,12 +2,16 @@ import Button from 'components/Button'
 import TextField from 'components/TextField'
 import { useAuth } from 'context/AuthContext'
 import React, { useState } from 'react'
-import { delay } from 'utils/delay'
+import { useDispatch } from 'react-redux'
+import authService from 'services/authService'
+import userService from 'services/userService'
 import './style.scss'
 
 const emailRegexp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 export const Checkout = () => {
+
+    const dispatch = useDispatch()
 
     const { submitLogin } = useAuth()
 
@@ -39,8 +43,20 @@ export const Checkout = () => {
 
         if (Object.keys(errorObj).length === 0) {
             setIsFetching(true)
-            await delay(3000)
-            submitLogin(form)
+            const token = await authService.login(form)
+            if(token?.message){
+                return alert(token.message)
+            }
+
+            localStorage.setItem('token',JSON.stringify(token.data))
+
+            const user = await userService.getInfo()
+
+            dispatch({
+                type: 'LOGIN',
+                payload: user.data
+            })
+
             setIsFetching(false)
         }
     }
@@ -67,7 +83,7 @@ export const Checkout = () => {
                         />
                         <TextField
                             label="Password"
-                            value={form.passowrd}
+                            value={form.password}
                             onChange={_onChange('password')}
                             placholder="Password"
                             type="password"

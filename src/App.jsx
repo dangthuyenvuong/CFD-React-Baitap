@@ -30,32 +30,38 @@ import { AuthLayout } from "./layout/AuthLayout";
 import Checkout from "pages/Checkout";
 import { AuthProvider } from "context/AuthContext";
 import { PageProvider } from 'context/PageContext'
+import { Provider } from 'react-redux'
+import store from './store'
+import Product from 'pages/Product'
 
 export default function App() {
   return (
     <BrowserRouter>
-      <PageProvider>
-        <AuthProvider>
-          <Routes>
-            <Route path="*" element={<NotFound />} />
-            <Route path="/" element={<MainLayout />}>
-              <Route index element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/checkout" element={<Checkout />} />
-              <Route path="/profile" element={<ProfileLayout />}>
-                <Route index element={<Info />} />
-                <Route path="address/*" element={<Address />} />
-                <Route path="order" element={<Order />} />
-                <Route path="order/:id" element={<OrderDetail />} />
+      <Provider store={store}>
+        <PageProvider>
+          <AuthProvider>
+            <Routes>
+              <Route path="*" element={<NotFound />} />
+              <Route path="/" element={<MainLayout />}>
+                <Route index element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/product" element={<Product />} />
+                <Route path="/checkout" element={<Checkout />} />
+                <Route path="/profile" element={<ProfileLayout />}>
+                  <Route index element={<Info />} />
+                  <Route path="address/*" element={<Address />} />
+                  <Route path="order" element={<Order />} />
+                  <Route path="order/:id" element={<OrderDetail />} />
+                </Route>
               </Route>
-            </Route>
-            <Route path="/" element={<AuthLayout />}>
-              <Route path="login" element={<Login />} />
-            </Route>
-          </Routes>
-        </AuthProvider>
-      </PageProvider>
+              <Route path="/" element={<AuthLayout />}>
+                <Route path="login" element={<Login />} />
+              </Route>
+            </Routes>
+          </AuthProvider>
+        </PageProvider>
+      </Provider>
     </BrowserRouter>
   );
 }

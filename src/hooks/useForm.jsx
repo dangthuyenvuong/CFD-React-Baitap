@@ -67,7 +67,8 @@ export const useForm = (initialValue = {}) => {
         return {
             name,
             onChange: onChange(name),
-            value: form[name]
+            value: form[name],
+            errorText: error?.[name] || '' 
         }
     }
 
@@ -85,11 +86,13 @@ export const useForm = (initialValue = {}) => {
     }
 
 
+
     return {
         register,
         handleSubmit,
         error,
         form,
-        setForm
+        setForm,
+        validate
     }
 }
