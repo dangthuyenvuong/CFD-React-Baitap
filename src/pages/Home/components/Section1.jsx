@@ -7,7 +7,7 @@ export const Section1 = () => {
 
     useEffect(() => {
         function scroll(){
-            console.log('scroll', window.scrollY)
+            // console.log('scroll', window.scrollY)
         }
         window.addEventListener('scroll',scroll) 
 

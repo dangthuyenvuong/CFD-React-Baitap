@@ -7,7 +7,8 @@ export const callApiWithToken = async (url, options = {}) => {
         ...options,
         headers: {
             ...options.headers,
-            'Authorization': `Bearer ${token.accessToken}`
+            'Authorization': `Bearer ${token.accessToken}`,
+            'Content-Type': 'application/json'
         }
     }
 

@@ -43,18 +43,19 @@ export const Checkout = () => {
 
         if (Object.keys(errorObj).length === 0) {
             setIsFetching(true)
-            const token = await authService.login(form)
-            if(token?.message){
-                return alert(token.message)
-            }
+            
+            // const token = await authService.login(form)
+            // if(token?.message){
+            //     return alert(token.message)
+            // }
 
-            localStorage.setItem('token',JSON.stringify(token.data))
+            // localStorage.setItem('token',JSON.stringify(token.data))
 
-            const user = await userService.getInfo()
+            // const user = await userService.getInfo()
 
             dispatch({
                 type: 'LOGIN',
-                payload: user.data
+                payload: form
             })
 
             setIsFetching(false)

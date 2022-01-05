@@ -8,8 +8,15 @@ const initialState = {
 
 const authReducer = ( state = initialState, action ) => {
     switch(action.type){
-        case 'LOGIN':
+        // case 'LOGIN':
+        //     return {
+        //         login: true,
+        //         user: action.payload
+        //     }
+
+        case 'SET_PROFILE':
             return {
+                ...state,
                 login: true,
                 user: action.payload
             }
