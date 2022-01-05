@@ -2,16 +2,8 @@ import { call, put, takeEvery, takeLatest, delay } from 'redux-saga/effects'
 import authService from 'services/authService';
 import cartService from 'services/cartService';
 import userService from 'services/userService';
-// import Api from '...'
 
-// worker Saga: will be fired on USER_FETCH_REQUESTED actions
 function* count(action) {
-    // try {
-    //     const user = yield call(Api.fetchUser, action.payload.userId);
-    //     yield put({ type: "USER_FETCH_SUCCEEDED", user: user });
-    // } catch (e) {
-    //     yield put({ type: "USER_FETCH_FAILED", message: e.message });
-    // }
 
     yield put({ type: 'INCREMENT' })
 
