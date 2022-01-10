@@ -14,6 +14,9 @@ import { objectToUrlQuery } from 'utils/urlQueryToObject'
 import { urlQueryToObject } from 'utils/urlQueryToObject'
 import { Section1 } from './components/Section1'
 
+console.log('Home')
+
+
 const Home = () => {
     const [posts, setPosts] = useState()
     const dispatch = useDispatch()
@@ -49,7 +52,7 @@ const Home = () => {
             <Breadcrumbs>
                 <BreadcrumbsItem to="/home">Home</BreadcrumbsItem>
             </Breadcrumbs>
-            <Paginate totalPage={10} />
+            {/* <Paginate totalPage={products.paginate.totalPage} /> */}
         </div>
     )
 }

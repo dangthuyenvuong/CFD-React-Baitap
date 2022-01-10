@@ -1,14 +1,4 @@
-
-import Home from './pages/Home'
-import About from './pages/About'
-import Contact from './pages/Contact'
-
-import Info from './pages/Profile/info'
-import Address from './pages/Profile/address'
-import Order from './pages/Profile/order'
-import OrderDetail from './pages/Profile/order_detail'
-
-import Login from './pages/Auth/login'
+import React, { Suspense } from 'react'
 import 'assets/css/style.scss'
 
 import {
@@ -38,6 +28,21 @@ import Button from 'components/Button'
 import { Breadcrumbs } from 'components/Breadcrumbs'
 import { BreadcrumbsItem } from 'components/Breadcrumbs'
 import { PRODUCT_DETAIL_PATH } from 'constant/path'
+
+
+
+// import Home from './pages/Home'
+import About from './pages/About'
+import Contact from './pages/Contact'
+
+import Info from './pages/Profile/info'
+import Address from './pages/Profile/address'
+import Order from './pages/Profile/order'
+import OrderDetail from './pages/Profile/order_detail'
+
+import Login from './pages/Auth/login'
+
+const Home = React.lazy(() => import('./pages/Home'))
 
 const Header = memo(({ count, callback }) => {
   console.log('Header re-render')
@@ -94,7 +99,7 @@ export default function App() {
 
   useEffect(() => {
     console.log(count)
-    if(count % 2 !== 0){
+    if (count % 2 !== 0) {
       setCount(Math.round(Math.random() * 100000))
     }
   }, [count])
@@ -113,33 +118,33 @@ export default function App() {
 
   // console.log('App re-render')
 
-  
-
   return (
     <BrowserRouter>
       <Provider store={store}>
         <PageProvider>
           <AuthProvider>
-            <Routes>
-              <Route path="*" element={<NotFound />} />
-              <Route path="/" element={<MainLayout />}>
-                <Route index  element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/product/*" element={<Product />} />
-                <Route path={PRODUCT_DETAIL_PATH} element={<Product />} />
-                <Route path="/checkout" element={<Checkout />} />
-                <Route path="/profile" element={<ProfileLayout />}>
-                  <Route index element={<Info />} />
-                  <Route path="address/*" element={<Address />} />
-                  <Route path="order" element={<Order />} />
-                  <Route path="order/:id" element={<OrderDetail />} />
+            <Suspense fallback={<div>Loading..........</div>}>
+              <Routes>
+                <Route path="*" element={<NotFound />} />
+                <Route path="/" element={<MainLayout />}>
+                  <Route index element={<Home />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/product/*" element={<Product />} />
+                  <Route path={PRODUCT_DETAIL_PATH} element={<Product />} />
+                  <Route path="/checkout" element={<Checkout />} />
+                  <Route path="/profile" element={<ProfileLayout />}>
+                    <Route index element={<Info />} />
+                    <Route path="address/*" element={<Address />} />
+                    <Route path="order" element={<Order />} />
+                    <Route path="order/:id" element={<OrderDetail />} />
+                  </Route>
                 </Route>
-              </Route>
-              <Route path="/" element={<AuthLayout />}>
-                <Route path="login" element={<Login />} />
-              </Route>
-            </Routes>
+                <Route path="/" element={<AuthLayout />}>
+                  <Route path="login" element={<Login />} />
+                </Route>
+              </Routes>
+            </Suspense>
           </AuthProvider>
         </PageProvider>
       </Provider>

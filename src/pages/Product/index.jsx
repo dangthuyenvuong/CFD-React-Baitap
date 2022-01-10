@@ -4,6 +4,8 @@ import { useEffect } from "react"
 import { useState } from "react/cjs/react.development"
 import productService from "services/productService"
 import { urlQueryToObject } from "utils/urlQueryToObject"
+import { ProductCard } from 'components/ProductCard'
+import './style.scss'
 
 const Product = () => {
     // const [isFetching, setIsFetching] = useState(true)
@@ -18,21 +20,23 @@ const Product = () => {
     //     })()
     // }, [])
 
-    const query = urlQueryToObject({page: 1})
+    const query = urlQueryToObject({ page: 1 })
 
     const {
         data: products,
         isFetching: productIsFetching
     } = useQuery(() => productService.list(window.location.search), [window.location.search])
 
-    if (productIsFetching) return '...loading'
-
-    console.log(products)
-
     return (
         <>
             <div>Product</div>
-            <Paginate totalPage={products?.paginate?.totalPage}/>
+            <Paginate totalPage={products?.paginate?.totalPage} />
+            <div className="product-list">
+                {
+                    productIsFetching ? [...Array(9)].map((e, i) => <ProductCard key={i} loading={true}/>) :
+                    products.map(e => <ProductCard key={e.id} {...e}/>)
+                }
+            </div>
         </>
     )
 }

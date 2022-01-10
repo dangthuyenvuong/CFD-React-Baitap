@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 export const useQuery = (promise, dependencyList = []) => {
     const [isFetching, setIsFetching] = useState(true)
-    const [data, setData] = useState()
+    const [data, setData] = useState([])
     
     useEffect( () => {
         (async () => {

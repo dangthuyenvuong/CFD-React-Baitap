@@ -1,5 +1,6 @@
 import Button from 'components/Button'
 import { useSelector, useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 import styles from './style.module.css'
 
 const Header = () => {
@@ -13,10 +14,8 @@ const Header = () => {
     }
     return (
         <div className={`${styles.header} header`}>
-            Xin chao {user?.name}
-            <Button onClick={logout}>Logout</Button>
-            <Button onClick={() => dispatch({ type: 'OPEN_CART' })}>Open Cart</Button>
-            Cart: {cart.totalQuantity}
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
         </div>
     )
 }
