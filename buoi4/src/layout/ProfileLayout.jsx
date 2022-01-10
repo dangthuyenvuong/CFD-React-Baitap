@@ -1,13 +1,29 @@
 import React from 'react'
-import { Link, Navigate, Outlet } from 'react-router-dom'
-export function ProfileLayout({login , handleLogout}) {
-    if(!login) return <Navigate to='/' />
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, Navigate, Outlet, useNavigate } from 'react-router-dom'
+import Buttons from '../components/Buttons';
+import ModalCard from '../components/ModalCard';
+import { LOGOUT_ACTION, TOKEN} from '../constant'
+export function ProfileLayout() {
+    const dispatch = useDispatch();
+    const token = localStorage.getItem(TOKEN)    
+    const navigate = useNavigate()
+    console.log(!token)
+    if(!token){
+        return <Navigate to='/' />
+    }
 
+    function logout() {
+        dispatch({
+            type: LOGOUT_ACTION
+        })
+        navigate('/')
+    }
     return (
         <div>
             <ul>
                 <li>
-                    <Link to=''>My Profile</Link>
+                    <Link to=''>Profile</Link>
                 </li>
                 <li>
                     <Link to='order' >Order</Link>
@@ -20,8 +36,10 @@ export function ProfileLayout({login , handleLogout}) {
                     <Link to='address' >Address</Link>
                 </li>
             </ul>
+            <ModalCard />
             <Outlet />
-            <button onClick={handleLogout}>Logout</button>
+            <br />
+            <Buttons handleClick={logout}>Logout</Buttons>
         </div>
     )
 }

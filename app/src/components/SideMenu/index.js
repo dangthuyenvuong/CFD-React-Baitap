@@ -2,7 +2,7 @@ import React from 'react'
 import { Buttons } from '..';
 import './style.scss';
 
-export function SideMenu({title = "Hello" , contentBtn ='More Categories' , list=[] , btn=true}) {
+export default function SideMenu({title = "Hello" , contentBtn ='More Categories' , list=[] , btn=true}) {
     return (
         <div className="sideMenu">
             <h2 className='sideMenu_title'>{title}</h2>

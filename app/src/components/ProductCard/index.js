@@ -2,7 +2,7 @@ import React from 'react'
 import { Heart, Compare , Close, Star} from '../icons';
 import './style.scss';
 
-export function ProductCard({url= 'imgs/1.jpg' , title='Product title'}) {
+export default function ProductCard({url= 'imgs/1.jpg' , title='Product title'}) {
     return (
         <div className='productCard'>
             <div className='productCard_controls'>

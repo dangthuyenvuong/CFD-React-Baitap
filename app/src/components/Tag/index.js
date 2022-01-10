@@ -2,7 +2,7 @@ import './style.scss';
 
 import React from 'react'
 
-export function Tag({children}) {
+export default function Tag({children}) {
     return (
         <div className='tag'>
             <span>{children}</span>

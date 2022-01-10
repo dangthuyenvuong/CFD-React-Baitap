@@ -1,7 +1,7 @@
 import React from 'react'
 import { Arrow , Search} from '../icons';
 import './style.scss';
-export function SearchBar() {
+export default function SearchBar() {
     return (
         <div className="searchBar">
             <div className="select">

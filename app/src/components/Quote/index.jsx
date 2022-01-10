@@ -1,6 +1,6 @@
 import React from 'react'
 import './style.scss';
-export function Quote({children , name = 'Name and Surname' , url='imgs/av4.png'}) {
+export default function Quote({children , name = 'Name and Surname' , url='imgs/av4.png'}) {
     return (
         <div className='quote'>
             <div className='quote_user'>

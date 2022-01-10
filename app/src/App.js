@@ -1,18 +1,25 @@
 import {BrowserRouter , Routes , Route} from "react-router-dom";
-import HomePage from "./pages/Homepage";
-import Checkoutpage  from "./pages/Checkoutpage";
 import MainLayout from "./layout/MainLayout";
+import { HomePage, Checkoutpage, Loginpage, Detail } from "./pages";
+import {Provider} from 'react-redux'
+import store from "./store";
+
 import './assets/css/global.scss'
+
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<MainLayout />}>
-          <Route index element={<HomePage />} />
-          <Route path='/checkout' element={<Checkoutpage />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<MainLayout />}>
+            <Route index element={<HomePage />} />
+            <Route path='/checkout' element={<Checkoutpage />} />
+            <Route path='/detail' element={<Detail />} />
+          </Route>
+          <Route path='/login' element = {<Loginpage />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   );
 }
 

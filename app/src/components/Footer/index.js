@@ -2,7 +2,7 @@ import React from 'react';
 import {SideMenu , Tag} from '../';
 import './style.scss';
 
-export function Footer() {
+export default function Footer() {
     const list1 = [
         {
             content: 'About Us',

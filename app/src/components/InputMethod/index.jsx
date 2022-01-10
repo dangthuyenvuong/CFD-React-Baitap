@@ -1,19 +1,17 @@
 import React from 'react'
 import './style.scss';
-export function InputMethod({name = 'Name', inputname = '', fee , url}) {
+export default function InputMethod({value = 'Name', name = '', fee , url ,onChange}) {
     return (
-        <div className='inputMethod inputStyle'>
+        <label htmlFor={value} className='inputMethod inputStyle'>
             <div className='inputMethod_name'>
-                <input type="radio" name={inputname} />
-                <span className='textStyle'>{name}</span>
+                <input type="radio" name={name} id={value} value={value} onChange={onChange}/>
+                <span className='textStyle'>{value}</span>
             </div>
             {fee && <div className='inputMethod_fee'>
                 <span className='textStyle'>+{fee} USD</span>
                 <span className='textStyle'>Additional price</span>
             </div>}
-            <div className='inputMethod_logo'>
-                <img src={url}/>
-            </div>
-        </div>
+            <div className='inputMethod_logo'><img src={url}/></div>
+        </label>
     )
 }

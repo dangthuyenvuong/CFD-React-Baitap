@@ -1,0 +1,47 @@
+@import '../../../../assets/css/style.scss';
+.boxImgs {
+    width: 50%;
+    &_item {
+        margin-top: 32px;
+        position: relative;
+        .img {
+            position: relative;
+            overflow: hidden;
+            height: 440px;
+            border-radius: 12px;
+            cursor: pointer;
+            &::after {
+                content: '';
+                @include displayBlock(100%,100%,rgba(0,0,0,0.4));
+                position: absolute;
+                pointer-events: none;
+                z-index: 3;
+                opacity: 0;
+                transition: $t;
+            }
+            img {
+                @include position(50%,50%,-50%,-50%)
+            }
+        }
+        .tags {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            opacity: 0;
+            transition: $t;
+            z-index: 4;
+            div {
+                display: inline-block;
+                margin-right: 5px;
+            }
+        }
+        &:hover {
+            .img::after {
+                opacity: 1;
+            }
+            .tags{
+                opacity: 1;
+            }
+        }
+    }
+}

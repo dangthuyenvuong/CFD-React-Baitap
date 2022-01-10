@@ -2,7 +2,7 @@ import React from 'react'
 import Title from './Title'
 import './style.scss'
 
-export function DropDownMenu({background = "#F9F9F9" , color = "#151515"}) {
+export default function DropDownMenu({background = "#F9F9F9" , color = "#151515"}) {
     return (
         <div className="dropDownMenu">
             <div className="container">

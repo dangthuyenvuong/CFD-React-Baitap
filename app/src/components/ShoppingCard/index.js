@@ -1,7 +1,7 @@
 import React from 'react'
 import {ProductCard , Inputs} from '../';
 import './style.scss';
-export function ShoppingCard() {
+export default function ShoppingCard() {
     return (
         <div className='shoppingCard'>
             <ul className='shoppingCard_list'>

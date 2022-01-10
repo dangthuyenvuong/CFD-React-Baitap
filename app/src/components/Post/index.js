@@ -1,6 +1,6 @@
 import React from 'react'
 import './style.scss'
-export function Post({children ,url = 'imgs/8.jpg', topic='', avt='', author='Athor' , date='14.04.2021' , size='middle'}) {
+export default function Post({children ,url = 'imgs/8.jpg', topic='', avt='', author='Athor' , date='14.04.2021' , size='middle'}) {
     return (
         <div className={`post post-${size}`}>
             <div className="post_img" style={{backgroundImage: `url(${url})`}}>

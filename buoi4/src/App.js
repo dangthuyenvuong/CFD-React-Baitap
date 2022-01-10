@@ -8,29 +8,16 @@ import {
 import { AuthLayout } from './layout/AuthLayout';
 import { MainLayout } from './layout/MainLayout';
 import {ProfileLayout} from './layout/ProfileLayout';
-import { About, Contact, Home, ViewCard, Checkout, MyProfile, AddressDetail, Order, OrderDetail, Payment, PaymentDetail, Address, Login, ForgotPass, ResetPass, Register} from './pages';
+import {Provider} from 'react-redux'
+import store from './store'
+
+import './assets/global.scss'
+
+import { About, Contact, Home, ViewCard, Checkout, Profile, AddressDetail, Order, OrderDetail, Payment, PaymentDetail, Address, Login, ForgotPass, ResetPass, Register} from './pages';
 function App() {
-  let [login , setLogin] = useState(false);
-  let [data , setData] = useState({});
-  const handleLogin = (accout) => {
-    console.log(accout)
-    setLogin(true);
-    setData(accout);
-  }
-  const handleLogout = () => {
-    setLogin(false);
-  }
   return (
     <BrowserRouter>
-    <ul>
-      <li><Link to='/'>Home</Link></li>
-      <li><Link to='/about'>About</Link></li>
-      <li><Link to='/contact'>Contact</Link></li>
-      <li><Link to='/viewcard'>ViewCard</Link></li>
-      <li><Link to='/checkout'>Checkout</Link></li>
-      <li><Link to='/profile'>Profile</Link></li>
-      <li><Link to='/auth'>Auth</Link></li>
-    </ul>
+    <Provider store={store}>
       <Routes>
         <Route path='/' element={<MainLayout />}>
           <Route index element={<Home />} />
@@ -38,8 +25,8 @@ function App() {
           <Route path='/contact' element={<Contact />} />
           <Route path='/viewcard' element={<ViewCard />} />
           <Route path='/checkout' element={<Checkout />} />
-          <Route path='/profile' element={<ProfileLayout data={data}  login={login} handleLogout={handleLogout}/>}>
-            <Route index element={<MyProfile data={data} />} />
+          <Route path='/profile' element={<ProfileLayout />}>
+            <Route index element={<Profile/>} />
             <Route path='address' element={<Address />} />
             <Route path='address/:id' element={<AddressDetail />} />
             <Route path='order' element={<Order />} />
@@ -49,8 +36,8 @@ function App() {
             
           </Route>
 
-          <Route path='/auth' element={<AuthLayout login={login} />}>
-            <Route index element={<Login handleLogin ={handleLogin} />}/>
+          <Route path='/auth' element={<AuthLayout />}>
+            <Route index element={<Login />}/>
             <Route path='forgot' element={<ForgotPass />}/>
             <Route path='reset' element={<ResetPass />}/>
             <Route path='register' element={<Register />}/>
@@ -58,6 +45,7 @@ function App() {
           </Route>
         </Route>
       </Routes>
+      </Provider>
     </BrowserRouter>
     );
 }

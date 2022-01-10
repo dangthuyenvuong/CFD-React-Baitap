@@ -1,21 +1,21 @@
 import { About } from "./About";
 import { Checkout } from "./Checkout";
-import { CheckoutSuccess } from "./CheckoutSuccess";
+import { CheckoutSuccess } from "./Checkout/CheckoutSuccess";
 import { Contact } from "./Contact";
-import { ForgotPass } from "./ForgotPass";
+import { ForgotPass } from "./Auth/ForgotPass";
 import { Home } from "./Home";
-import { Login } from "./Login";
-import { Register } from "./Register";
-import { ResetPass } from "./ResetPass";
-import { ViewCard } from "./ViewCard";
+import { Login } from "./Auth/Login";
+import { Register } from "./Auth/Register";
+import { ResetPass } from "./Auth/ResetPass";
+import { ViewCard } from "./Card";
 import { NotFound } from "./NotFound";
-import { MyProfile} from './MyProfile';
+import { Profile} from './Profile';
 import { Order } from "./Order";
-import { OrderDetail } from "./OrderDetail";
+import { OrderDetail } from "./Order/OrderDetail";
 import { Payment } from "./Payment";
-import { PaymentDetail } from "./PaymentDetail";
+import { PaymentDetail } from "./Payment/PaymentDetail";
 import { Address } from "./Address";
-import { AddressDetail } from "./AddressDetail";
+import { AddressDetail } from "./Address/AddressDetail";
 
 export {About,
 Checkout,
@@ -28,7 +28,7 @@ Register,
 ResetPass,
 ViewCard,
 NotFound,
-MyProfile,
+Profile,
 Order,
 OrderDetail,
 Payment,

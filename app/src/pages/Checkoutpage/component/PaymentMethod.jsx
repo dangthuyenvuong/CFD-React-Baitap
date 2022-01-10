@@ -1,7 +1,16 @@
-import React from 'react'
-import {Accordion, InputMethod} from '../../../components';
+import React, { useState } from 'react'
+import {Accordion} from '../../../components';
 
-export function PaymentMethod() {
+export function PaymentMethod({error, register}) {
+    let [show , setShow] = useState();
+    let accor = [
+        {url:'imgs/fedex.png',handleShow:() => handleShow(0), ...{...register('payMethod'),value:'Credit card'}},
+        {url:'imgs/fedex.png',handleShow:() => handleShow(1), ...{...register('payMethod'),value:'PayPal'}},
+        {url:'imgs/fedex.png',handleShow:() => handleShow(2), ...{...register('payMethod'),value:'Bitcoin'}}
+    ]
+    function handleShow(index) {
+        setShow(index)
+    }
     return (
         <div className='paymentMethod form_group'>
             <div className='form_title'>
@@ -9,16 +18,16 @@ export function PaymentMethod() {
                 <p><span>Please enter your payment method</span><span>Step 3 of 5</span></p>
             </div>
             <div className='form_payment'>
-                <div className="item">
-                    <Accordion name='Credit card' inputname='payment' url='imgs/fedex.png' />
+                {accor.map((item,index) => {
+                    return <div className="item">
+                    <Accordion {...item}
+                    open={index === show}
+                    register={register}
+                    error={error}/>
                 </div>
-                <div className="item">
-                    <Accordion name='Credit card' inputname='payment' url='imgs/fedex.png' />   
-                </div>
-                <div className="item">
-                    <Accordion name='Credit card' inputname='payment' url='imgs/fedex.png' />
-                </div>
+                })}
             </div>
+            <p className='form_error'>{error.payMethod}</p>
         </div>
     )
 }

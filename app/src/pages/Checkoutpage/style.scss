@@ -47,12 +47,12 @@
 .form_method {  //billingMethod
     .item {
         margin-bottom: 16px;
+        user-select: none;
     }
 }
 .form_payment { //paymentMethod
     .item {
         margin-bottom: 16px;
-        user-select: none;
     }
 }
 .form_confir {
@@ -62,7 +62,7 @@
 }
 .form_submit {
     button {
-        margin: 32px 0;
+        margin: 40px 0 32px 0;
     }
     &-info {
         max-width: 213px;
@@ -81,4 +81,9 @@
     border: 1px solid  $blurColor;
     border-radius: 12px;
     height: max-content;
+}
+.form_error {
+    color: red;
+    font-size: 13px;
+    position: absolute;
 }

@@ -1,6 +1,12 @@
 import React from 'react'
 import { CustomerQuotes , BestSelling , CategoryMenu, ProductList , BlogPosts} from './components';
+import {useSelector} from 'react-redux'
+import { Navigate } from 'react-router-dom';
+import { TOKEN } from '../../constant';
 export default function HomePage() {
+    const token = JSON.parse(localStorage.getItem(TOKEN));
+    if(!token) return <Navigate to='/login' />
+
     const list1 = [
         {
             content: 'Bakery',

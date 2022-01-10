@@ -1,9 +1,20 @@
 import React from 'react'
-import {InformationBar,SearchBar,MiniCard } from '..';
+import { useDispatch } from 'react-redux';
+import { InformationBar,SearchBar,MiniCard } from '..';
+import { OPEN_CARD } from '../../constant';
 import { Buy , User } from '../icons';
 import './style.scss'
 
-export function Header() {
+export default function Header() {
+    const dispatch = useDispatch()
+
+    function handleCard() {
+        dispatch({
+            type:OPEN_CARD
+        });
+    }
+
+    
     return (
         <header>
             <div className="container">
@@ -15,7 +26,7 @@ export function Header() {
                     <SearchBar />
                     <div className="header_icons">
                         <MiniCard><User /></MiniCard>
-                        <MiniCard infoBox><Buy /></MiniCard>
+                        <MiniCard onClick={handleCard} infoBox><Buy /></MiniCard>
                     </div>
                 </div>
             </div>

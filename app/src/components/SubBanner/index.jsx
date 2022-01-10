@@ -1,7 +1,7 @@
 import React from 'react';
 import { Buttons } from '..';
 import './style.scss'
-export function SubBanner({urlImg = "./imgs/Banner.png"}) {
+export default function SubBanner({urlImg = "./imgs/Banner.png"}) {
     return (
         <div className="SubBanner">
             <div className="SubBanner_text">

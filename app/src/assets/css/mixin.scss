@@ -5,7 +5,7 @@
     background-color: $color;
     border-radius: $radius;
 }
-@mixin flex($x , $y , $flexDirection : row) {
+@mixin flex($x , $y: initial , $flexDirection : row) {
     display:flex;
     justify-content: $x;
     align-items: $y;

@@ -1,6 +1,6 @@
 import React from 'react'
 import './style.scss'
-export function InformationBar() {
+export default function InformationBar() {
     return (
         <div className="informationBar">
             <div className="informationBar_list">

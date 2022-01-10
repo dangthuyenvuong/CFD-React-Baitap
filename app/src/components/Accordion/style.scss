@@ -1,5 +1,6 @@
 @import '../../assets/css/style.scss';
 .accordion {
+    display: block;
     border-radius: 12px;
     overflow: hidden;
     height: auto;
@@ -14,11 +15,11 @@
         grid-gap: 32px;
         max-height: 0;
         transition:max-height .3s;
-        .item1 {
+        div:first-child{
             grid-column: 1/4;
         }
     }
-    &.show {
+    &.open {
         border: 1px solid #D1D1D1;
         padding: 12px;
         .accordion_panel {
