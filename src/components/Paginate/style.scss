@@ -1,0 +1,16 @@
+.Paginate{
+    display: flex;
+    gap: 15px;
+    a{
+        text-decoration: none;
+        color: #d9d9d9;
+        display: block;
+        width: 30px;
+        height: 30px;
+        border-radius: 100px;
+        border: 1px solid #d9d9d9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

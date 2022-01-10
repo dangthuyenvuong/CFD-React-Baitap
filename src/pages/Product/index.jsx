@@ -1,7 +1,9 @@
+import Paginate from "components/Paginate"
 import { useQuery } from "hooks/useQuery"
 import { useEffect } from "react"
 import { useState } from "react/cjs/react.development"
 import productService from "services/productService"
+import { urlQueryToObject } from "utils/urlQueryToObject"
 
 const Product = () => {
     // const [isFetching, setIsFetching] = useState(true)
@@ -16,17 +18,22 @@ const Product = () => {
     //     })()
     // }, [])
 
+    const query = urlQueryToObject({page: 1})
+
     const {
         data: products,
         isFetching: productIsFetching
-    } = useQuery(productService.list, [])
+    } = useQuery(() => productService.list(window.location.search), [window.location.search])
 
     if (productIsFetching) return '...loading'
 
     console.log(products)
 
     return (
-        <div>Product</div>
+        <>
+            <div>Product</div>
+            <Paginate totalPage={products?.paginate?.totalPage}/>
+        </>
     )
 }
 

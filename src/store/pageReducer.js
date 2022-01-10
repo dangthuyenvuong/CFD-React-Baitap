@@ -1,5 +1,6 @@
 const initialValue = {
-    isOpenCart: false
+    isOpenCart: false,
+    page: 0
 }
 
 export default function pageReducer (state = initialValue, action){
@@ -13,6 +14,11 @@ export default function pageReducer (state = initialValue, action){
             return {
                 ...state,
                 isOpenCart: false
+            }
+        case 'PAGE':
+            return {
+                ...state,
+                page: action.payload
             }
         
     }
