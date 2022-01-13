@@ -1,6 +1,6 @@
 import {call, delay, put, takeEvery, takeLatest} from 'redux-saga/effects'
-import { GET_PROFILE, LOGIN, SET_PROFILE, TOKEN, SET_CARD } from '../../constant'
-import { authService, cardService, userService } from '../../services';
+import { GET_PROFILE, LOGIN, SET_PROFILE, TOKEN, SET_CARD, SET_PRODUCT } from '../../constant'
+import { authService, cardService, productService, userService } from '../../services';
 
 function* fetchLogin(action) {
     try {
@@ -37,11 +37,25 @@ function* getCard() {
         console.log(err)
     }
 }
-
+function* getProduct() {
+    try{
+        const token = JSON.parse(localStorage.getItem(TOKEN))
+        if(token) {
+            const product = yield call(productService.getProduct);
+            yield put({
+                type: SET_PRODUCT,
+                payload: product.data
+            })
+        }
+    }catch(err) {
+        console.log(err)
+    }
+}
 function* mySaga() {
     yield takeLatest(LOGIN , fetchLogin);
     yield takeLatest(GET_PROFILE, getProfile)
     yield takeLatest(GET_PROFILE, getCard)
+    yield takeLatest(GET_PROFILE, getProduct)
 }
 
 

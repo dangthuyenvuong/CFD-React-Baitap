@@ -1,7 +1,7 @@
 import React, { forwardRef, useRef, useImperativeHandle } from 'react'
 import {useForm} from '../../hooks/useForm'
 
-export function Checkout() {
+export default function Checkout() {
     const BillingInfo = forwardRef((props,ref) => {
         let {form,validate,handleSubmit,register} = useForm({
             key1: ''

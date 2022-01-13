@@ -12,3 +12,6 @@ export const OPEN_CARD = 'OPEN_CARD';
 export const CLOSE_CARD = 'CLOSE_CARD';
 export const SET_CARD = 'SET_CARD';
 export const CLEAR_CARD = 'CLEAR_CARD';
+
+export const SET_PRODUCT = 'SET_PRODUCT'
+export const CLEAR_PRODUCT = 'CLEAR_PRODUCT'

@@ -1,9 +1,8 @@
 @import '../../../../assets/css/style.scss';
 .boxImgs {
-    width: 50%;
     &_item {
-        margin-top: 32px;
         position: relative;
+        margin-bottom: 32px;
         .img {
             position: relative;
             overflow: hidden;

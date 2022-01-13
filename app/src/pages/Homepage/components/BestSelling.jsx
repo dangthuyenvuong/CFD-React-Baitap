@@ -1,7 +1,10 @@
 import React from 'react'
 import { SideMenu , ProductItem } from '../../../components';
 import './style.scss';
-export function BestSelling({title = 'Best selling products' , list=[]}) {
+import { useSelector } from 'react-redux';
+
+export function BestSelling({title = 'Best selling products' , list=[] , productList=[]}) {
+
     return (
         <section className='bestSelling'>
             <div className='container'>
@@ -9,9 +12,7 @@ export function BestSelling({title = 'Best selling products' , list=[]}) {
                     <SideMenu list={list} contentBtn='More products' title={title}/>
                 </div>
                 <div className='bestSelling_box'>
-                    <div className='item'><ProductItem /></div>
-                    <div className='item'><ProductItem sale='4.8' /></div>
-                    <div className='item'><ProductItem sale='4.8' /></div>
+                    {/* {productList.map(item => <ProductItem url={item.images[0].base_url}/>)} */}
                 </div>
             </div>
         </section>

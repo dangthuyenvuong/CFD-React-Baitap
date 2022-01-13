@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function ViewCard() {
+export default function ViewCard() {
     return (
         <div>
             View card

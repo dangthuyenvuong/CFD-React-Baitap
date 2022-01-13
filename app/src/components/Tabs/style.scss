@@ -1,0 +1,74 @@
+@import '../../assets/css/style.scss';
+.tabs{
+    &_name{
+        display: flex;
+        li {
+            color: #151515;
+            font-weight: 600;
+            font-size: 18px;
+            width: 33.33%;
+            padding: 16px 0;
+            padding-left: 16px;
+            user-select: none;
+            cursor: pointer;
+            position: relative;
+            &:first-child{
+                padding-left: 0;
+            }
+            &::after{
+                content: '';
+                position: absolute;
+                left: 0;
+                display: block;
+                width: 100%;
+                height: 1px;
+                background-color: $blurColor;
+                margin-top: 16px;
+            }
+            &.active, &:hover {
+                &::after {
+                    background-color: $greenColor;
+                }
+            }
+        }
+    }
+    &_content{
+        margin-top: 16px;
+        li {
+            display: none;
+            &.active {
+                display: block;
+            }
+            .content{
+
+                h5{
+                    font-size: 15px;
+                    font-weight: 600;
+                }
+                p {
+                    margin-bottom: 32px;
+                    margin-top: 8px;
+                }
+                table {
+                    margin-top: 20px;
+                    width: 100%;
+                    tr {
+                        &:nth-child(even) {
+                            background-color: #FDFDFD;
+                        }
+                        th {
+                            width: 33.333%;
+                        }
+                        td {
+                            color:#575757;
+                            font-size: 14px;
+                            padding: 10px 0;
+                            border:1px solid transparent;
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

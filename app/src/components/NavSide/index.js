@@ -11,8 +11,6 @@ import './style.scss';
 
 export default function NavSide() {
     const {isOpen} = useSelector(store => store.page)
-    const {card} = useSelector(state => state.card);
-    console.log(card)
     const dispatch = useDispatch();
     return (
         <div className={classNames('navSide',`${isOpen?'active':''}`)}>

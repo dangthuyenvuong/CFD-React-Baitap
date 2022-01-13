@@ -1,0 +1,12 @@
+.detailPage{
+    .productDetail{
+        margin-top: 32px;
+        .container{
+            display: flex;
+            justify-content: space-between;
+            & > div {
+                width: 48%;
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+.productList {
+    .container {
+        .title {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .items {
+            display: flex;
+            margin-right: -30px;
+            .item {
+                width: 25%;
+                margin-right: 30px;
+            }
+        }
+    }
+}
