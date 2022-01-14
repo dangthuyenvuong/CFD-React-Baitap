@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../../../component/Button/Button';
-import { ArrowRight } from '../../../component/Icon';
+import { Arrow } from '../../../component/Icon';
 
 function Banner(props) {
     return (
@@ -12,7 +12,7 @@ function Banner(props) {
                 <h4 className="banner__heading">
                     Space for heading
                 </h4>
-                <Button content={"Space for heading"} bgcolor='default' size='medium' type = 'icon-right' icon={ <ArrowRight />}/>
+                <Button content={"Space for heading"} bgcolor='default' size='medium' type = 'icon-right' icon={ <Arrow />}/>
            </div>
 
         </div>

@@ -1,0 +1,12 @@
+@import '../../../assets/css/style.scss';
+.infoTable{
+    li {
+        display: inline-block;
+        width: 50%;
+        span:first-child{
+            display: inline-block;
+            width: 100px;
+            color: #A9A9A9;
+        }
+    }
+}

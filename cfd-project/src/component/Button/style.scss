@@ -3,10 +3,13 @@
 
 
 .button{
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    gap: 0 8px;
     border-radius: $radius;
+    border: none;
     font-weight: 700;
-
+    cursor: pointer;
     &.size{
         &-small{
             height: $btnS-Height;
@@ -28,20 +31,28 @@
     }
     &.type{
         &-icon-left{
-            span{
-                margin-right: 12px;
+            svg{
+                // transform: rotate(270deg) !important;
+                & path{
+                    stroke-width: 5.5;
+                }
             }
         }
         &-icon-right{
-            span{
-                margin-left: 11px;
+            svg{
+                // transform: rotate(270deg) !important;
+
+                & path{
+                    stroke-width: 5.5;
+                }
+
             }
         }
     }
     &.bgcolor{
         &-default{
             background-color: transparent;
-            border: 2px solid $borderDefault;
+            // border: 2px solid $borderDefault;
             
         }
         &-bright{
@@ -61,5 +72,11 @@
         &-white{
             color: $lightColor;
         }
+        &-gray{
+            color: $productColor;
+        }
+    }
+    svg{
+        width: 16px;
     }
 }

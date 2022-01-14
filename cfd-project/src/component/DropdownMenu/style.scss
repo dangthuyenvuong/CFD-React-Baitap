@@ -3,6 +3,7 @@
 
 
 .menu{
+    background-color: $grayBlur;
     &__categories{
         display: flex;
         justify-content: space-between;
@@ -15,5 +16,10 @@
         gap: 0 6px;
         cursor: pointer;
     }
+    svg{
+        width: 16px;
+        
+    }
+
     
 }

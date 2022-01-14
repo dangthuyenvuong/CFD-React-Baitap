@@ -1,8 +1,8 @@
 import React from 'react';
 import Button from '../../../component/Button/Button';
-import { ArrowRight } from '../../../component/Icon';
+import { Arrow } from '../../../component/Icon';
 import ProductItem from '../../../component/Product';
-import './style.scss'
+import './style.scss';
 function HeadLine(props) {
     return (
         <section className='headline'>
@@ -11,7 +11,7 @@ function HeadLine(props) {
                     <h4 className="headline__title">
                         Section Headline
                     </h4>
-                    <Button content={"Button"} size='small'type='icon-right'icon={<ArrowRight/> } bgcolor='store'/>
+                    <Button content={"Button"} size='small'type='icon-right'icon={<Arrow/> } bgcolor='store'/>
 
                 </div>
                 <div className="headline__list">

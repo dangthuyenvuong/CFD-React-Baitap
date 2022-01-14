@@ -1,12 +1,11 @@
 import React from 'react';
-import { ArrowDown } from '../Icon';
-
+import { Arrow } from '../Icon';
 function DropdownAccount({title}) {
     return (
         <li className="menu__type">
             <p className="menu__title">
                 {title}
-                <ArrowDown width={16} height={16}/>
+                <Arrow color='#6A983C'/>
             </p>
         </li>
     );

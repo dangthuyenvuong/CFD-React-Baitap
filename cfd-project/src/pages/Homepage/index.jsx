@@ -1,5 +1,4 @@
 import React from 'react';
-import DropdownMenu from "../../component/DropdownMenu";
 import Slider from "../../component/Slider";
 import Blog from "./Blog";
 import Categories from "./Category";
@@ -12,16 +11,16 @@ function HomePage(props) {
       ]
       const titles2 = [
         "Carrots", "Tomatoes", "Potatoes", "Chicken", "Pork"
-      ]
+  ]
+ 
     return (
         <>
-            <DropdownMenu />
             <Categories />
             <Selling name="Best selling products" btn="More products" titles={titles1}/>
             <Selling name="Best from Farmers" btn="More products" titles={titles2} />
             <Slider />
             <HeadLine />
-            <Blog />
+           <Blog />
         </>
     );
 }

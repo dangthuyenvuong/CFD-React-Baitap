@@ -1,8 +1,8 @@
 import React from 'react';
 import Button from '../../../component/Button/Button';
-import { ArrowRight } from '../../../component/Icon';
+import { Arrow } from '../../../component/Icon';
 import Post from './Post';
-import './style.scss'
+import './style.scss';
 function Blog(props) {
     return (
         <section className='blog'>
@@ -12,7 +12,7 @@ function Blog(props) {
                             Read our Blog posts
                     </h4>    
                     <div className="blog__btn">
-                        <Button content={"Go to Blog"} size='small'type='icon-right'icon={<ArrowRight/> } bgcolor='store'/>
+                        <Button content={"Go to Blog"} size='small'type='icon-right'icon={<Arrow /> } bgcolor='store'/>
                     </div>
                 </div>
                 <div className="blog__main">

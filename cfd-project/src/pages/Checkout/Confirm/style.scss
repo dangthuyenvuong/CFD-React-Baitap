@@ -1,0 +1,9 @@
+@import '../../../assets/css/variable';
+.form{
+    &__confirm{
+        
+        &  label:not(:first-child){
+            margin-top: 16px;
+        }
+    }
+}

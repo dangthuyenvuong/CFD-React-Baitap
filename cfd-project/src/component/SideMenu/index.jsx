@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '../Button/Button';
-import { ArrowRight } from '../Icon';
-import './style.scss'
+import { Arrow } from '../Icon';
+import './style.scss';
 function SideMenu({name, btn , titles}) {
     return (
                 <div className="list list__title">
@@ -14,7 +14,7 @@ function SideMenu({name, btn , titles}) {
                         titles.map( (title, index) => {
                             return (
                                 <li key={index} className="list__item">
-                                <a href="#!" className="list__link">
+                                <a href=" " className="list__link">
                                 {title}
                                 </a>
                             </li>
@@ -23,7 +23,7 @@ function SideMenu({name, btn , titles}) {
                     }
                        
                     </ul>
-                <Button bgcolor='store' content={btn} type = "icon-right" icon={<ArrowRight/>}/>
+                <Button bgcolor='store' content={btn} type = "icon-right" icon={<Arrow/>}/>
                 </div>
         
        

@@ -1,0 +1,22 @@
+@import '../../assets/css/variable';
+
+
+.paginate{
+    display: flex;
+    align-items: center;
+    gap: 0 8px;
+    min-width: 150px;
+    & .page-number.active{
+        color: $greenColor;
+    }
+    & .page{
+        color: $blurColor;
+    }
+    a,span{
+        font-size: 12px;
+    }
+    & .active-page{
+        color: $greenColor;
+        font-weight: 600;
+    }
+}

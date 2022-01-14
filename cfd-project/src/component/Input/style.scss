@@ -1,0 +1,58 @@
+@import '../../assets/css/variable';
+
+.input{
+    display: block;
+    position: relative;
+    &__label{
+        font-size: 12px;
+        font-weight: 600;
+    }
+    &__main{
+        display: flex;
+        align-items: center;
+        gap: 0 8px;
+        border-radius: $radius;
+        border: 1px solid $productColor;
+        background-color: $grayBlur;
+        overflow: hidden;
+    }
+    &__range{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        cursor: pointer;
+        svg path{
+            stroke-width: 5.5;
+        }
+    }
+    
+    input[type = checkbox]{
+        width: 24px;
+        height: 24px;
+        margin-left: 18px;
+    }
+    input[type = text]{
+        height: 42px;
+        border: none;
+        outline: none;
+        padding: 0 18px;
+    }
+    input:disabled::placeholder{
+        color: #000;
+    }
+    input{
+        background-color: $grayBlur;
+        font-size: 14px;
+        flex: 1
+
+    }
+    span{
+        height: 16px;
+        width: 16px;
+    }
+    & .text-error{
+        font-size: 12px;
+        height: 15px;
+        color: red;
+    }
+}
